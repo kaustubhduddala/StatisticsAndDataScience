@@ -1,0 +1,196 @@
+Breed,Description,Coat_Type,Coat_Length,Shedding_Level,Drooling_Level,Openness_To_Strangers,Protective_Nature,Trainability,Energy_Level,Barking_Level,Rank_2020
+Retrievers (Labrador),https://www.akc.org/dog-breeds/labrador-retriever/,Double,Short,4,2,5,3,5,5,3,1
+French Bulldogs,https://www.akc.org/dog-breeds/french-bulldog/,Smooth,Short,3,3,5,3,4,3,1,2
+German Shepherd Dogs,https://www.akc.org/dog-breeds/german-shepherd-dog/,Double,Medium,4,2,3,5,5,5,3,3
+Retrievers (Golden),https://www.akc.org/dog-breeds/golden-retriever/,Double,Medium,4,2,5,3,5,3,1,4
+Bulldogs,https://www.akc.org/dog-breeds/bulldog/,Smooth,Short,3,3,4,3,4,3,2,5
+Poodles,https://www.akc.org/dog-breeds/poodle-standard/,Curly,Long,1,1,5,5,5,4,4,6
+Beagles,https://www.akc.org/dog-breeds/beagle/,Smooth,Short,3,1,3,2,3,4,4,7
+Rottweilers,https://www.akc.org/dog-breeds/rottweiler/,Smooth,Short,3,3,3,5,5,3,1,8
+Pointers (German Shorthaired),https://www.akc.org/dog-breeds/german-shorthaired-pointer/,Smooth,Short,3,2,4,4,5,5,3,9
+Dachshunds,https://www.akc.org/dog-breeds/dachshund/,Smooth,Short,2,2,4,4,4,3,5,10
+Pembroke Welsh Corgis,https://www.akc.org/dog-breeds/pembroke-welsh-corgi/,Double,Short,4,1,4,5,4,4,4,11
+Australian Shepherds,https://www.akc.org/dog-breeds/australian-shepherd/,Double,Medium,3,1,3,3,5,5,3,12
+Yorkshire Terriers,https://www.akc.org/dog-breeds/yorkshire-terrier/,Silky,Long,1,1,5,5,4,4,4,13
+Boxers,https://www.akc.org/dog-breeds/boxer/,Smooth,Short,2,3,4,4,4,4,3,14
+Great Danes,https://www.akc.org/dog-breeds/great-dane/,Smooth,Short,3,4,3,5,3,4,3,15
+Siberian Huskies,https://www.akc.org/dog-breeds/siberian-husky/,Double,Medium,4,1,5,1,3,5,5,16
+Cavalier King Charles Spaniels,https://www.akc.org/dog-breeds/cavalier-king-charles-spaniel/,Wavy,Medium,2,2,4,3,4,3,3,17
+Doberman Pinschers,https://www.akc.org/dog-breeds/doberman-pinscher/,Smooth,Short,4,2,4,5,5,5,3,18
+Miniature Schnauzers,https://www.akc.org/dog-breeds/miniature-schnauzer/,Wiry,Medium,3,2,3,4,5,3,5,19
+Shih Tzu,https://www.akc.org/dog-breeds/shih-tzu/,Double,Long,1,1,3,3,4,3,3,20
+Boston Terriers,https://www.akc.org/dog-breeds/boston-terrier/,Smooth,Short,2,1,5,3,4,4,2,21
+Bernese Mountain Dogs,https://www.akc.org/dog-breeds/bernese-mountain-dog/,Double,Medium,5,3,4,3,4,4,3,22
+Pomeranians,https://www.akc.org/dog-breeds/pomeranian/,Double,Long,2,1,3,4,3,3,4,23
+Havanese,https://www.akc.org/dog-breeds/havanese/,Double,Long,2,1,5,3,4,3,4,24
+Cane Corso,https://www.akc.org/dog-breeds/cane-corso/,Smooth,Short,2,3,3,5,4,4,3,25
+Spaniels (English Springer),https://www.akc.org/dog-breeds/english-springer-spaniel/,Double,Medium,3,3,4,3,5,4,3,26
+Shetland Sheepdogs,https://www.akc.org/dog-breeds/shetland-sheepdog/,Double,Long,3,1,2,5,5,4,5,27
+Brittanys,https://www.akc.org/dog-breeds/brittany/,Double,Short,3,1,3,3,5,5,3,28
+Pugs,https://www.akc.org/dog-breeds/pug/,Smooth,Short,4,1,5,3,4,3,1,29
+Spaniels (Cocker),https://www.akc.org/dog-breeds/cocker-spaniel/,Double,Long,3,2,4,3,4,4,3,30
+Miniature American Shepherds,https://www.akc.org/dog-breeds/miniature-american-shepherd/,Double,Medium,3,2,3,3,5,5,3,31
+Border Collies,https://www.akc.org/dog-breeds/border-collie/,Double,Medium,3,1,4,3,5,5,4,32
+Mastiffs,https://www.akc.org/dog-breeds/mastiff/,Double,Short,3,4,3,5,3,3,1,33
+Chihuahuas,https://www.akc.org/dog-breeds/chihuahua/,Smooth,Short,2,1,2,4,3,4,5,34
+Vizslas,https://www.akc.org/dog-breeds/vizsla/,Smooth,Short,3,2,4,3,5,5,3,35
+Basset Hounds,https://www.akc.org/dog-breeds/basset-hound/,Smooth,Short,2,4,3,3,3,2,4,36
+Belgian Malinois,https://www.akc.org/dog-breeds/belgian-malinois/,Smooth,Short,3,1,3,4,5,4,3,37
+Maltese,https://www.akc.org/dog-breeds/maltese/,Silky,Long,1,1,3,4,3,3,3,38
+Weimaraners,https://www.akc.org/dog-breeds/weimaraner/,Smooth,Short,3,2,3,5,5,5,3,39
+Collies,https://www.akc.org/dog-breeds/collie/,Smooth,Short,3,2,3,3,4,3,5,40
+Newfoundlands,https://www.akc.org/dog-breeds/newfoundland/,Double,Medium,3,5,5,5,3,3,1,41
+Rhodesian Ridgebacks,https://www.akc.org/dog-breeds/rhodesian-ridgeback/,Smooth,Short,3,2,3,5,4,3,2,42
+Shiba Inu,https://www.akc.org/dog-breeds/shiba-inu/,Double,Short,3,1,3,5,2,3,3,43
+West Highland White Terriers,https://www.akc.org/dog-breeds/west-highland-white-terrier/,Double,Medium,3,1,4,5,3,4,5,44
+Bichons Frises,https://www.akc.org/dog-breeds/bichon-frise/,Double,Long,1,1,5,2,4,4,3,45
+Bloodhounds,https://www.akc.org/dog-breeds/bloodhound/,Smooth,Short,3,5,3,2,4,3,5,46
+Spaniels (English Cocker),https://www.akc.org/dog-breeds/english-cocker-spaniel/,Double,Medium,3,2,4,3,4,3,3,47
+Akitas,https://www.akc.org/dog-breeds/akita/,Double,Medium,3,1,2,5,3,4,2,48
+Portuguese Water Dogs,https://www.akc.org/dog-breeds/portuguese-water-dog/,Curly,Long,2,2,4,4,5,5,3,49
+Retrievers (Chesapeake Bay),https://www.akc.org/dog-breeds/chesapeake-bay-retriever/,Wiry,Medium,3,2,3,4,5,4,3,50
+Dalmatians,https://www.akc.org/dog-breeds/dalmatian/,Smooth,Short,4,2,4,4,4,4,3,51
+St. Bernards,https://www.akc.org/dog-breeds/st-bernard/,Smooth,Short,3,5,3,5,3,3,1,52
+Papillons,https://www.akc.org/dog-breeds/papillon/,Silky,Medium,3,1,5,4,5,4,5,53
+Australian Cattle Dogs,https://www.akc.org/dog-breeds/australian-cattle-dog/,Smooth,Short,3,1,3,4,4,5,1,54
+Bullmastiffs,https://www.akc.org/dog-breeds/bullmastiff/,Smooth,Short,3,3,3,5,4,4,1,55
+Samoyeds,https://www.akc.org/dog-breeds/samoyed/,Double,Long,3,1,5,4,4,4,5,56
+Scottish Terriers,https://www.akc.org/dog-breeds/scottish-terrier/,Wiry,Medium,2,2,3,5,3,3,4,57
+Soft Coated Wheaten Terriers,https://www.akc.org/dog-breeds/soft-coated-wheaten-terrier/,Wavy,Medium,1,2,3,3,3,4,3,58
+Whippets,https://www.akc.org/dog-breeds/whippet/,Smooth,Short,2,1,3,3,3,4,1,59
+Pointers (German Wirehaired),https://www.akc.org/dog-breeds/german-wirehaired-pointer/,Wiry,Medium,2,2,4,3,5,5,3,60
+Chinese Shar-Pei,https://www.akc.org/dog-breeds/chinese-shar-pei/,Smooth,Short,3,3,3,4,3,3,3,61
+Airedale Terriers,https://www.akc.org/dog-breeds/airedale-terrier/,Wiry,Short,1,1,3,5,3,3,3,62
+Wirehaired Pointing Griffons,https://www.akc.org/dog-breeds/wirehaired-pointing-griffon/,Wiry,Medium,3,3,5,3,5,5,3,63
+Bull Terriers,https://www.akc.org/dog-breeds/bull-terrier/,Smooth,Short,3,1,4,3,3,4,3,64
+Alaskan Malamutes,https://www.akc.org/dog-breeds/alaskan-malamute/,Double,Medium,3,1,3,4,5,4,3,65
+Cardigan Welsh Corgis,https://www.akc.org/dog-breeds/cardigan-welsh-corgi/,Double,Medium,3,1,4,3,4,4,5,66
+Giant Schnauzers,https://www.akc.org/dog-breeds/giant-schnauzer/,Wiry,Medium,3,2,3,5,5,5,3,67
+Old English Sheepdogs,https://www.akc.org/dog-breeds/old-english-sheepdog/,Double,Long,3,3,3,4,4,3,3,68
+Italian Greyhounds,https://www.akc.org/dog-breeds/italian-greyhound/,Smooth,Short,3,1,5,3,4,3,3,69
+Great Pyrenees,https://www.akc.org/dog-breeds/great-pyrenees/,Double,Medium,3,3,3,5,3,3,3,70
+Dogues de Bordeaux,https://www.akc.org/dog-breeds/dogue-de-bordeaux/,Smooth,Short,4,5,3,5,4,3,3,71
+Russell Terriers,https://www.akc.org/dog-breeds/russell-terrier/,Wiry,Short,3,1,5,4,3,5,4,72
+Cairn Terriers,https://www.akc.org/dog-breeds/cairn-terrier/,Wiry,Medium,2,1,3,4,3,3,4,73
+Irish Wolfhounds,https://www.akc.org/dog-breeds/irish-wolfhound/,Wiry,Medium,3,2,3,5,3,3,1,74
+Setters (Irish),https://www.akc.org/dog-breeds/irish-setter/,Silky,Medium,3,2,5,3,4,5,3,75
+Greater Swiss Mountain Dogs,https://www.akc.org/dog-breeds/greater-swiss-mountain-dog/,Smooth,Short,3,3,5,4,4,4,3,76
+Miniature Pinschers,https://www.akc.org/dog-breeds/miniature-pinscher/,Smooth,Short,3,1,3,5,3,5,5,77
+Lhasa Apsos,https://www.akc.org/dog-breeds/lhasa-apso/,Silky,Long,1,1,3,5,3,3,3,78
+Chinese Crested,https://www.akc.org/dog-breeds/chinese-crested/,Hairless,Short,1,1,4,3,4,3,3,79
+Coton de Tulear,https://www.akc.org/dog-breeds/coton-de-tulear/,Double,Long,2,1,5,3,4,3,1,80
+Staffordshire Bull Terriers,https://www.akc.org/dog-breeds/staffordshire-bull-terrier/,Smooth,Short,2,3,4,5,5,4,3,81
+American Staffordshire Terriers,https://www.akc.org/dog-breeds/american-staffordshire-terrier/,Smooth,Short,2,1,4,5,3,3,3,82
+Rat Terriers,https://www.akc.org/dog-breeds/rat-terrier/,Smooth,Short,3,1,5,4,5,4,3,83
+Chow Chows,https://www.akc.org/dog-breeds/chow-chow/,Smooth,Medium,3,3,2,5,3,3,1,84
+Anatolian Shepherd Dogs,https://www.akc.org/dog-breeds/anatolian-shepherd-dog/,Smooth,Short,3,1,1,5,2,3,3,85
+Basenjis,https://www.akc.org/dog-breeds/basenji/,Smooth,Short,2,1,3,3,2,4,1,86
+Spaniels (Boykin),https://www.akc.org/dog-breeds/boykin-spaniel/,Double,Medium,3,1,3,3,4,4,3,87
+Lagotti Romagnoli,https://www.akc.org/dog-breeds/lagotto-romagnolo/,Double,Medium,1,2,4,3,4,4,2,88
+Brussels Griffons,https://www.akc.org/dog-breeds/brussels-griffon/,Wiry,Short,3,1,4,3,4,3,4,89
+Retrievers (Nova Scotia Duck Tolling),https://www.akc.org/dog-breeds/nova-scotia-duck-tolling-retriever/,Double,Medium,3,2,3,3,5,5,2,90
+Norwegian Elkhounds,https://www.akc.org/dog-breeds/norwegian-elkhound/,Double,Medium,3,2,4,5,4,4,4,91
+Standard Schnauzers,https://www.akc.org/dog-breeds/standard-schnauzer/,Wiry,Medium,1,3,3,5,5,3,3,92
+Dogo Argentinos,https://www.akc.org/dog-breeds/dogo-argentino/,Smooth,Short,4,3,4,5,5,5,3,93
+Bouviers des Flandres,https://www.akc.org/dog-breeds/bouvier-des-flandres/,Rough,Medium,3,2,3,4,4,4,3,94
+Pekingese,https://www.akc.org/dog-breeds/pekingese/,Double,Long,3,1,3,4,3,3,1,95
+Keeshonden,https://www.akc.org/dog-breeds/keeshond/,Double,Long,3,2,5,5,5,4,4,96
+Border Terriers,https://www.akc.org/dog-breeds/border-terrier/,Wiry,Short,2,1,4,3,4,3,3,97
+Leonbergers,https://www.akc.org/dog-breeds/leonberger/,Double,Long,4,3,5,4,5,3,3,98
+Tibetan Terriers,https://www.akc.org/dog-breeds/tibetan-terrier/,Double,Long,3,2,3,4,3,4,3,99
+Neapolitan Mastiffs,https://www.akc.org/dog-breeds/neapolitan-mastiff/,Smooth,Short,3,5,3,5,3,2,1,100
+Setters (English),https://www.akc.org/dog-breeds/english-setter/,Double,Medium,3,3,4,3,4,3,3,101
+Retrievers (Flat-Coated),https://www.akc.org/dog-breeds/flat-coated-retriever/,Smooth,Medium,3,2,5,3,5,5,3,102
+Borzois,https://www.akc.org/dog-breeds/borzoi/,Curly,Medium,3,1,3,3,2,4,2,103
+Fox Terriers (Wire),https://www.akc.org/dog-breeds/wire-fox-terrier/,Wiry,Medium,2,2,5,4,4,4,4,104
+Miniature Bull Terriers,https://www.akc.org/dog-breeds/miniature-bull-terrier/,Smooth,Short,2,2,3,4,3,4,5,105
+Belgian Tervuren,https://www.akc.org/dog-breeds/belgian-tervuren/,Double,Medium,3,1,3,4,5,4,3,106
+Setters (Gordon),https://www.akc.org/dog-breeds/gordon-setter/,Double,Medium,3,4,3,4,5,5,3,107
+Silky Terriers,https://www.akc.org/dog-breeds/silky-terrier/,Silky,Long,2,1,4,5,4,3,4,108
+Norwich Terriers,https://www.akc.org/dog-breeds/norwich-terrier/,Wiry,Short,3,1,5,4,3,4,4,109
+Spinoni Italiani,https://www.akc.org/dog-breeds/spinone-italiano/,Wiry,Medium,3,3,3,3,4,3,2,110
+Japanese Chin,https://www.akc.org/dog-breeds/japanese-chin/,Silky,Medium,3,1,3,3,3,3,2,111
+Welsh Terriers,https://www.akc.org/dog-breeds/welsh-terrier/,Wiry,Medium,2,2,5,4,4,4,4,112
+Toy Fox Terriers,https://www.akc.org/dog-breeds/toy-fox-terrier/,Smooth,Short,3,1,5,5,5,4,4,113
+Schipperkes,https://www.akc.org/dog-breeds/schipperke/,Double,Short,3,1,3,5,4,3,4,114
+Parson Russell Terriers,https://www.akc.org/dog-breeds/parson-russell-terrier/,Smooth,Short,2,1,3,3,4,5,3,115
+Pointers,https://www.akc.org/dog-breeds/pointer/,Smooth,Short,3,2,4,3,5,4,3,116
+Belgian Sheepdogs,https://www.akc.org/dog-breeds/belgian-sheepdog/,Double,Medium,3,1,3,4,5,4,3,117
+Tibetan Spaniels,https://www.akc.org/dog-breeds/tibetan-spaniel/,Double,Medium,3,2,4,4,3,3,3,118
+American Eskimo Dogs,https://www.akc.org/dog-breeds/american-eskimo-dog/,Double,Medium,3,1,5,3,4,4,3,119
+Irish Terriers,https://www.akc.org/dog-breeds/irish-terrier/,Wiry,Medium,2,1,3,5,3,3,3,120
+Beaucerons,https://www.akc.org/dog-breeds/beauceron/,Smooth,Short,4,1,2,4,3,5,3,121
+Afghan Hounds,https://www.akc.org/dog-breeds/afghan-hound/,Silky,Long,1,1,3,3,1,4,3,122
+Boerboels,https://www.akc.org/dog-breeds/boerboel/,Smooth,Short,3,3,3,5,4,3,3,123
+Fox Terriers (Smooth),https://www.akc.org/dog-breeds/smooth-fox-terrier/,Smooth,Short,3,1,3,5,3,4,5,124
+Bearded Collies,https://www.akc.org/dog-breeds/bearded-collie/,Silky,Long,3,1,4,3,3,4,5,125
+Black Russian Terriers,https://www.akc.org/dog-breeds/black-russian-terrier/,Double,Medium,3,3,2,5,4,4,3,126
+Black and Tan Coonhounds,https://www.akc.org/dog-breeds/black-and-tan-coonhound/,Smooth,Short,3,3,3,2,3,3,4,127
+Spaniels (Welsh Springer),https://www.akc.org/dog-breeds/welsh-springer-spaniel/,Double,Medium,3,2,1,3,5,4,3,128
+American Hairless Terriers,https://www.akc.org/dog-breeds/american-hairless-terrier/,Hairless,Short,1,1,3,3,5,3,3,129
+Norfolk Terriers,https://www.akc.org/dog-breeds/norfolk-terrier/,Wiry,Short,3,1,5,4,3,4,4,130
+Xoloitzcuintli,https://www.akc.org/dog-breeds/xoloitzcuintli/,Hairless,Short,1,1,3,3,4,4,3,131
+Manchester Terriers,https://www.akc.org/dog-breeds/manchester-terrier-standard/,Smooth,Short,2,1,3,4,4,4,4,132
+Kerry Blue Terriers,https://www.akc.org/dog-breeds/kerry-blue-terrier/,Wavy,Medium,1,2,3,5,3,4,4,133
+Australian Terriers,https://www.akc.org/dog-breeds/australian-terrier/,Wiry,Short,1,1,3,4,4,4,5,134
+Spaniels (Clumber),https://www.akc.org/dog-breeds/clumber-spaniel/,Wavy,Medium,3,4,4,3,4,3,1,135
+Lakeland Terriers,https://www.akc.org/dog-breeds/lakeland-terrier/,Wiry,Short,2,1,3,3,3,3,3,136
+Bluetick Coonhounds,https://www.akc.org/dog-breeds/bluetick-coonhound/,Smooth,Short,3,2,3,2,4,4,4,137
+English Toy Spaniels,https://www.akc.org/dog-breeds/english-toy-spaniel/,Double,Medium,3,2,3,3,3,3,2,138
+German Pinschers,https://www.akc.org/dog-breeds/german-pinscher/,Smooth,Short,3,1,3,4,5,5,3,139
+Tibetan Mastiffs,https://www.akc.org/dog-breeds/tibetan-mastiff/,Double,Medium,4,3,1,5,3,3,3,140
+Bedlington Terriers,https://www.akc.org/dog-breeds/bedlington-terrier/,Curly,Medium,1,1,3,4,3,4,3,141
+Greyhounds,https://www.akc.org/dog-breeds/greyhound/,Smooth,Short,2,1,3,3,3,4,3,142
+Pulik,https://www.akc.org/dog-breeds/puli/,Corded,Long,1,2,3,5,5,3,3,143
+Salukis,https://www.akc.org/dog-breeds/saluki/,Smooth,Short,2,1,3,1,3,4,3,144
+Barbets,https://www.akc.org/dog-breeds/barbet/,Curly,Medium,1,1,3,3,4,3,3,145
+Redbone Coonhounds,https://www.akc.org/dog-breeds/redbone-coonhound/,Smooth,Short,3,3,3,3,3,3,4,146
+Swedish Vallhunds,https://www.akc.org/dog-breeds/swedish-vallhund/,Double,Short,4,2,3,3,4,4,3,147
+Sealyham Terriers,https://www.akc.org/dog-breeds/sealyham-terrier/,Wiry,Medium,3,1,4,5,4,3,4,148
+Spanish Water Dogs,https://www.akc.org/dog-breeds/spanish-water-dog/,Corded,Medium,1,2,3,3,4,4,3,149
+Briards,https://www.akc.org/dog-breeds/briard/,Double,Long,1,2,3,4,3,3,1,150
+Berger Picards,https://www.akc.org/dog-breeds/berger-picard/,Wiry,Medium,3,1,3,4,4,4,2,151
+Entlebucher Mountain Dogs,https://www.akc.org/dog-breeds/entlebucher-mountain-dog/,Smooth,Short,3,2,3,5,3,5,3,152
+Treeing Walker Coonhounds,https://www.akc.org/dog-breeds/treeing-walker-coonhound/,Smooth,Short,3,3,3,3,5,5,4,153
+Icelandic Sheepdogs,https://www.akc.org/dog-breeds/icelandic-sheepdog/,Double,Medium,3,2,3,4,5,4,4,154
+Wirehaired Vizslas,https://www.akc.org/dog-breeds/wirehaired-vizsla/,Wiry,Short,3,2,5,3,5,5,3,155
+Pumik,https://www.akc.org/dog-breeds/pumi/,Curly,Medium,1,2,3,4,5,5,3,156
+Portuguese Podengo Pequenos,https://www.akc.org/dog-breeds/portuguese-podengo/,Wiry,Medium,3,1,3,3,3,4,3,157
+Spaniels (American Water),https://www.akc.org/dog-breeds/american-water-spaniel/,Double,Medium,1,1,3,3,5,3,3,158
+Retrievers (Curly-Coated),https://www.akc.org/dog-breeds/curly-coated-retriever/,Double,Short,2,1,3,4,4,4,3,159
+Spaniels (Field),https://www.akc.org/dog-breeds/field-spaniel/,Smooth,Medium,3,2,4,3,5,3,3,160
+Lowchen,https://www.akc.org/dog-breeds/lowchen/,Wavy,Long,2,1,3,4,4,3,3,161
+Nederlandse Kooikerhondjes,https://www.akc.org/dog-breeds/nederlandse-kooikerhondje/,Double,Medium,3,2,4,3,5,4,3,162
+Affenpinschers,https://www.akc.org/dog-breeds/affenpinscher/,Wiry,Short,3,1,5,3,3,3,3,163
+Petits Bassets Griffons Vendeens,https://www.akc.org/dog-breeds/petit-basset-griffon-vendeen/,Rough,Long,2,2,4,4,3,4,5,164
+Finnish Lapphunds,https://www.akc.org/dog-breeds/finnish-lapphund/,Double,Medium,4,2,4,3,4,3,5,165
+Scottish Deerhounds,https://www.akc.org/dog-breeds/scottish-deerhound/,Wiry,Medium,3,1,3,3,3,3,1,166
+Plott Hounds,https://www.akc.org/dog-breeds/plott-hound/,Plott Hounds,Plott Hounds,0,0,0,0,0,0,0,167
+Norwegian Buhunds,https://www.akc.org/dog-breeds/norwegian-buhund/,Double,Medium,3,1,3,4,3,4,4,168
+Glen of Imaal Terriers,https://www.akc.org/dog-breeds/glen-of-imaal-terrier/,Wiry,Medium,2,2,3,3,3,3,2,169
+Setters (Irish Red and White),https://www.akc.org/dog-breeds/irish-red-and-white-setter/,Double,Medium,2,2,5,3,5,5,3,170
+Ibizan Hounds,https://www.akc.org/dog-breeds/ibizan-hound/,Wiry,Short,2,1,3,3,3,5,3,171
+Spaniels (Sussex),https://www.akc.org/dog-breeds/sussex-spaniel/,Double,Medium,3,3,3,3,4,3,3,172
+Bergamasco Sheepdogs,https://www.akc.org/dog-breeds/bergamasco-sheepdog/,Corded,Long,1,2,3,4,3,3,1,173
+Spaniels (Irish Water),https://www.akc.org/dog-breeds/irish-water-spaniel/,Curly,Medium,1,2,3,3,5,3,1,174
+Polish Lowland Sheepdogs,https://www.akc.org/dog-breeds/polish-lowland-sheepdog/,Double,Long,2,2,3,5,4,3,4,175
+Otterhounds,https://www.akc.org/dog-breeds/otterhound/,Rough,Medium,2,3,4,3,4,3,5,176
+Kuvaszok,https://www.akc.org/dog-breeds/kuvasz/,Double,Medium,3,2,3,5,5,3,3,177
+Komondorok,https://www.akc.org/dog-breeds/komondor/,Corded,Long,1,2,3,5,4,3,3,178
+Cirnechi dell Etna,https://www.akc.org/dog-breeds/cirneco-delletna/,Smooth,Short,1,1,3,3,4,3,2,179
+Pharaoh Hounds,https://www.akc.org/dog-breeds/pharaoh-hound/,Smooth,Short,3,1,3,3,4,4,3,180
+Dandie Dinmont Terriers,https://www.akc.org/dog-breeds/dandie-dinmont-terrier/,Double,Medium,2,1,4,4,4,3,3,181
+Pyrenean Shepherds,https://www.akc.org/dog-breeds/pyrenean-shepherd/,Smooth,Medium,3,2,3,5,5,5,4,182
+Skye Terriers,https://www.akc.org/dog-breeds/skye-terrier/,Double,Long,3,1,3,3,3,3,3,183
+Canaan Dogs,https://www.akc.org/dog-breeds/canaan-dog/,Smooth,Short,4,1,3,4,4,3,5,184
+American English Coonhounds,https://www.akc.org/dog-breeds/american-english-coonhound/,Smooth,Short,2,1,3,3,3,4,4,185
+Chinooks,https://www.akc.org/dog-breeds/chinook/,Smooth,Medium,3,1,3,4,4,3,5,186
+Finnish Spitz,https://www.akc.org/dog-breeds/finnish-spitz/,Double,Medium,3,2,3,3,3,5,5,187
+Grand Basset Griffon Vendeens,https://www.akc.org/dog-breeds/grand-basset-griffon-vendeen/,Wiry,Medium,3,2,5,3,3,5,4,188
+Sloughis,https://www.akc.org/dog-breeds/sloughi/,Smooth,Short,3,1,2,2,3,4,2,189
+Harriers,https://www.akc.org/dog-breeds/harrier/,Double,Short,3,2,4,3,4,4,5,190
+Cesky Terriers,https://www.akc.org/dog-breeds/cesky-terrier/,Wavy,Medium,2,1,4,3,3,3,3,191
+American Foxhounds,https://www.akc.org/dog-breeds/american-foxhound/,Smooth,Short,3,1,3,3,3,4,5,192
+Azawakhs,https://www.akc.org/dog-breeds/azawakh/,Smooth,Short,2,1,1,3,2,3,1,193
+English Foxhounds,https://www.akc.org/dog-breeds/english-foxhound/,Double,Short,3,2,4,3,4,4,5,194
+Norwegian Lundehunds,https://www.akc.org/dog-breeds/norwegian-lundehund/,Double,Short,3,1,3,3,3,3,3,195
