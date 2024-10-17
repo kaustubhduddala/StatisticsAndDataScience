@@ -34,7 +34,7 @@ The primary **outcome variable** in this analysis is **Trainability**, which ind
 
 The outcome variable, **Trainability**, reflects the adaptability of dog breeds, while the predictor variables—**Energy Level**, **Openness to Strangers**, and **Coat Type**— may provide insight into the factors that may influence this trait.
 
-![](images/clipboard-2211295377.png)
+![](https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2019/03/14153748/Labrador-retriever-puppies-sleeping-side-by-side-in-the-grass.jpeg)
 
 *Image 1:* Labrador retriever puppies sleeping side by side in the grass*. Source: [American Kennel Club (AKC)](https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2019/03/14153748/Labrador-retriever-puppies-sleeping-side-by-side-in-the-grass.jpeg).*
 
