@@ -2,15 +2,16 @@
 title: "2020 Dog Breed Rankings Data Analysis Report"
 subtitle: "Project 1 - Kaustubh Duddala"
 output:
-  html_document:
-    theme: journal
-    toc: true
-    toc_float:
-      collapsed: true
+html_document:
+theme: journal
+toc: true
+toc_float:
+collapsed: true
 date: "September 27, 2024"
 ---
 
 ```{r setup, echo=FALSE, include=FALSE}
+setwd("~/Documents/UT/SDS 313/9 Project 1")
 library(dplyr)
 library(ggplot2)
 library(knitr)
@@ -34,7 +35,7 @@ The primary **outcome variable** in this analysis is **Trainability**, which ind
 
 The outcome variable, **Trainability**, reflects the adaptability of dog breeds, while the predictor variables—**Energy Level**, **Openness to Strangers**, and **Coat Type**— may provide insight into the factors that may influence this trait.
 
-![](https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2019/03/14153748/Labrador-retriever-puppies-sleeping-side-by-side-in-the-grass.jpeg)
+![](images/clipboard-2211295377.png)
 
 *Image 1:* Labrador retriever puppies sleeping side by side in the grass*. Source: [American Kennel Club (AKC)](https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2019/03/14153748/Labrador-retriever-puppies-sleeping-side-by-side-in-the-grass.jpeg).*
 
@@ -50,10 +51,10 @@ These statistics indicate that while the average **Trainability** level is usual
 
 ```{r, echo=FALSE}
 ggplot(dog_data, aes(x = Trainability)) +
-  geom_histogram(bins = 30, fill = "#bf5700", color = "black", alpha = 0.7) +
-  labs(title = "Distribution of Dog Breed Trainability (2020)",
-       x = "Trainability",
-       y = "Frequency")
+ geom_histogram(bins = 30, fill = "#bf5700", color = "black", alpha = 0.7) +
+ labs(title = "Distribution of Dog Breed Trainability (2020)",
+      x = "Trainability",
+      y = "Frequency")
 ```
 
 *Figure 1: Distribution of Dog Breed Trainability (2020). Methodology: [American Kennel Club (AKC)](https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-02-01/readme.md).*
@@ -73,8 +74,8 @@ The descriptive statistics for the outcome variable **Trainability** are as foll
 -   **Maximum**: 5
 
 ```{r, echo=FALSE}
-  print("five number summary (minimum, lower-hinge, median, upper-hinge, maximum):")
-  print(fivenum(dog_data$Trainability))
+ print("five number summary (minimum, lower-hinge, median, upper-hinge, maximum):")
+ print(fivenum(dog_data$Trainability))
 ```
 
 *Figure 2: Fivenum Summary output using the dataset. Learn More: [rdocumentation.org](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/fivenum).*
@@ -89,17 +90,17 @@ The scatter plot indicates a **positive correlation** between **Energy Level** a
 
 ```{r, echo=FALSE}
 dog_data_with_count_EL <- dog_data %>%
-  group_by(Energy_Level, Trainability) %>%
-  mutate(count = n()) %>%
-  ungroup()
+ group_by(Energy_Level, Trainability) %>%
+ mutate(count = n()) %>%
+ ungroup()
 
 ggplot(dog_data_with_count_EL, aes(x = Energy_Level, y = Trainability)) +
-  geom_point(aes(size = count), color = "#333f48") +
-  geom_smooth(formula = 'y ~ x', method = "lm", color = "#bf5700", show.legend = FALSE) +
-  labs(title = "Energy Level vs. Trainability",
-       x = "Energy Level",
-       y = "Trainability",
-       size = "Frequency")
+ geom_point(aes(size = count), color = "#333f48") +
+ geom_smooth(formula = 'y ~ x', method = "lm", color = "#bf5700", show.legend = FALSE) +
+ labs(title = "Energy Level vs. Trainability",
+      x = "Energy Level",
+      y = "Trainability",
+      size = "Frequency")
 
 cor(dog_data$Energy_Level, dog_data$Trainability)
 ```
@@ -114,17 +115,17 @@ The scatter plot illustrates that breeds rated higher in **Openness to Strangers
 
 ```{r, echo=FALSE}
 dog_data_with_count_OtS <- dog_data %>%
-  group_by(Openness_To_Strangers, Trainability) %>%
-  mutate(count = n()) %>%
-  ungroup()
+ group_by(Openness_To_Strangers, Trainability) %>%
+ mutate(count = n()) %>%
+ ungroup()
 
 ggplot(dog_data_with_count_OtS, aes(x = Openness_To_Strangers, y = Trainability)) +
-  geom_point(aes(size = count), color = "#333f48") +
-  geom_smooth(formula = 'y ~ x', method = "lm", color = "#bf5700", show.legend = FALSE) +
-  labs(title = "Openness to Strangers vs. Trainability",
-       x = "Openness to Strangers",
-       y = "Trainability",
-       size = "Frequency")
+ geom_point(aes(size = count), color = "#333f48") +
+ geom_smooth(formula = 'y ~ x', method = "lm", color = "#bf5700", show.legend = FALSE) +
+ labs(title = "Openness to Strangers vs. Trainability",
+      x = "Openness to Strangers",
+      y = "Trainability",
+      size = "Frequency")
 
 cor(dog_data$Openness_To_Strangers, dog_data$Trainability)
 ```
@@ -140,17 +141,17 @@ The analysis of Coat Type reveals that certain coat classifications are associat
 ```{r, echo=FALSE}
 
 dog_data_with_count_CT <- dog_data %>%
-  group_by(Coat_Type, Trainability) %>%
-  mutate(count = n()) %>%
-  ungroup()
+ group_by(Coat_Type, Trainability) %>%
+ mutate(count = n()) %>%
+ ungroup()
 
 ggplot(dog_data_with_count_CT, aes(x = Coat_Type, y = Trainability)) +
-  geom_point(aes(size = count), color = "#333f48") +
-  geom_smooth(formula = 'y ~ x', method = "lm", color = "#bf5700", show.legend = FALSE) +
-  labs(title = "Coat Type vs. Trainability",
-       x = "Coat Type",
-       y = "Trainability",
-       size = "Frequency")
+ geom_point(aes(size = count), color = "#333f48") +
+ geom_smooth(formula = 'y ~ x', method = "lm", color = "#bf5700", show.legend = FALSE) +
+ labs(title = "Coat Type vs. Trainability",
+      x = "Coat Type",
+      y = "Trainability",
+      size = "Frequency")
 ```
 
 *Figure 5: Coat Type vs. Trainability.*
@@ -161,23 +162,23 @@ Various Choice Elements were used in the production of this report, as listed be
 
 -   **A. Use 2 or more in-line codes within your report.**
 
-    -   In-line codes were used for the fivenum report and also for the generation of graphs. [What is In-line Code](https://rmarkdown.rstudio.com/lesson-4.html)?
+-   In-line codes were used for the fivenum report and also for the generation of graphs. [What is In-line Code](https://rmarkdown.rstudio.com/lesson-4.html)?
 
 -   **B. Include at least 2 working hyperlinks within your report that further explain your data source or one of the variables.**
 
-    -   Hyperlinks can be found in the captions of various figures throughout the document as a way to further explain what the reader is seeing and offer further insight into methodology, context, or tools used. This can be found under Image 1, Figure 1, and Figure 2.
+-   Hyperlinks can be found in the captions of various figures throughout the document as a way to further explain what the reader is seeing and offer further insight into methodology, context, or tools used. This can be found under Image 1, Figure 1, and Figure 2.
 
 -   **C. Change the default font style, size, and/or color of the text in part of your report to highlight some important part of your analysis.**
 
-    -   Throughout the document, various parts of the texts have been **bolded** and *italicized* to either put emphasis on it or to indicate it as an optional addition to the document. Default font size is also changed throughout the document to distinguish titles, headers, subtitles, and regular text.
+-   Throughout the document, various parts of the texts have been **bolded** and *italicized* to either put emphasis on it or to indicate it as an optional addition to the document. Default font size is also changed throughout the document to distinguish titles, headers, subtitles, and regular text.
 
 -   **D. Include a floating table of contents to allow easy navigation across sections.**
 
-    -   Can be found in the top left corner of the knitted HTML (This document).
+-   Can be found in the top left corner of the knitted HTML (This document).
 
 -   **E. Create at least one new variable that is part of your analysis, as either the outcome variable or a predictor variable.**
 
-    -   For 3.1, 3.2, and 3.3, new variables, following the naming convention of dog_data_with_count\_{element}, were made to help assist as the predictor variables and graphing.
+-   For 3.1, 3.2, and 3.3, new variables, following the naming convention of dog_data_with_count\_{element}, were made to help assist as the predictor variables and graphing.
 
 # 5. Conclusion
 
