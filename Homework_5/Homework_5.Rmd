@@ -1,0 +1,50 @@
+---
+title: "Homework 5"
+output: html_document
+date: "2024-10-25"
+---
+
+```{r setup}
+library(tidyverse)
+library(ggplot2)
+setwd("~/Documents/UT/SDS 313/17 Homework 5")
+```
+
+## Questions
+
+# 1.1. Scraping Data and Importing
+
+```{r}
+data <- as_tibble(read_csv("data.csv"))
+```
+
+# 1.2. Graph of the Distribution of 3 Pointers
+
+```{r}
+# Filter for the chosen teams
+chosen_teams <- c("Indiana Fever", "Dallas Wings", "Los Angeles Sparks")
+filtered_data <- data %>% filter(Team %in% chosen_teams)
+
+# Create the distribution plot
+ggplot(filtered_data, aes(x = `3P`, fill = Team)) +  # Use backticks around `3P`
+  geom_histogram(binwidth = 5, position = "dodge", alpha = 0.7) +
+  labs(title = "Distribution of 3-Pointers Made by Players",
+       x = "Number of 3-Pointers Made",
+       y = "Number of Players") +
+  scale_fill_manual(values = c("Indiana Fever" = "red", "Dallas Wings" = "cyan", "Los Angeles Sparks" = "purple"))
+```
+
+# 1.3. Highlighting a Random Player
+
+```{r}
+random_player <- sample(data$Player, 1)
+highlight_player <- data %>% filter(Player == random_player)
+
+ggplot(data, aes(x = MP, y = TRB)) +
+  geom_point(alpha = 0.6) +
+  geom_point(data = highlight_player, aes(x = MP, y = TRB), color = 'navy') +
+  geom_text(data = highlight_player, aes(label = Player), vjust = -1, color = "navy") +
+  labs(title = "Relationship Between Minutes Played and Total Rebounds",
+       x = "Minutes Played",
+       y = "Total Rebounds")
+```
