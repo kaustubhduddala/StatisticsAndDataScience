@@ -1,0 +1,149 @@
+---
+title: "SDS 313 Week 9 - Online Data"
+output: html_document
+date: "2024-10-22"
+---
+
+## Pulling Data from Online
+
+Data we've been analyzing in the class so far has been in a nice format, provided to you by me. But it won't always be so easy to access the data you need to analyze.
+
+Today, we will be discussing how to work with data that is:
+
+-   Exported by some other software (not .csv).
+-   Downloaded directly off the web.
+-   Manually scraped from the web.
+-   Scraped from the web using code.
+
+### Data from other softwares
+
+Other researchers might use different software with their own file extensions. For common ones, there's likely already a package that can be used to import them into R.
+
+Download the *texas.sas7bdat* file from Canvas. This file is from SAS (a popular statistical analysis software) and can be imported easily:
+
+```{r}
+setwd("~/Documents/UT/SDS 313/15 Online Data")
+#install.packages('sas7bdat')
+library(sas7bdat)
+
+#Import SAS dataset
+texas <- read.sas7bdat('Texas Data Fall 2024.sas7bdat')
+head(texas)
+```
+
+If you encounter a file with a weird extension, google it to see if there is an existing import function. If not, you might need to convert the file using another program before working with it in R.
+
+### Downloading data from the web
+
+Data posted online are sometimes easy to download, like [here](https://data.cms.gov/provider-data/topics/hospitals). Always look for a **data dictionary** to help you make sense of the variables.
+
+Other times, you'll need approval to access the file, like [here](https://repository.niddk.nih.gov/studies/dpp/). Depending on the source, before you can get the data you might need to:
+
+-   Explain your purpose for using the data.
+-   Explain what security measures you'll use to protect the data.
+-   Get IRB (Instructional Review Board) approval.
+-   Sign a data use agreement.
+-   Pay money.
+
+### Manually scraping data from the web
+
+If the data you want isn't already compiled in a file, you will need to pull the information yourself. Sometimes, it's as easy as a "manual scrape," or simply copy/pasting the values into Excel.
+
+### Group Practice
+
+1.  Try manually scraping [the number of unprovoked shark attacks by country](https://www.floridamuseum.ufl.edu/shark-attacks/maps/world/).
+2.  Make a histogram of the count of unprovoked shark attacks and paste the results on your [group slide](https://docs.google.com/presentation/d/1dD7Mn2YNGz2INQRh5toxPwvBKScJUBfoEtmtloeLzKY/edit?usp=sharing).
+3.  Below your graph, come up with at least 2 scenarios when it would *not* make sense to manually scrape data from the web like you did here...?
+
+### Web scraping with code
+
+Manual scraping is prone to errors and often won't work. We'll use the *rvest* library functions to:
+
+-   Read HTML source code from a website.
+-   Break it into a nice structure.
+-   Extract the specific elements we want to analyze.
+
+```{r warning=FALSE}
+#install.packages('rvest')
+library(rvest)
+```
+
+Let's work with ESPN's [World's 50 Best Women Soccer Players](https://www.espn.com/soccer/story/_/id/39050145/2023-best-50-women-soccer-players-ranked-world) website and **scrape their names.**
+
+Before we start, you'll need to:
+
+1.  Download [Chrome's Selector Gadget extension](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb), which lets you easily identify the HTML "tag" for a pattern of elements that you want to scrape.
+2.  Open the "Developer Tools" by clicking on the puzzle piece to the right of the address bar.
+3.  Click on an element you want to scrape. ***If anything is highlighted yellow that you [don't]{.underline} want, click it to remove it from your selection.***
+
+Once you get the right **element tag** in the bar at the bottom, we'll copy it to web scrape. First, we'll need to store the entire HTML source code from the website:
+
+```{r}
+#Store URL
+soccer_link <- "https://www.espn.com/soccer/story/_/id/39050145/2023-best-50-women-soccer-players-ranked-world"
+
+#Pull all html information from the URL
+soccer_page <- read_html(soccer_link)
+soccer_page
+```
+
+Then, we'll copy/paste the tag into the "XXXtagXXX" spot below to pull out the elements we want:
+
+```{r}
+#Pull out information only related to desired element
+soccer_names <- html_text(html_elements(soccer_page, "XXXtagXXX"))
+soccer_names
+```
+
+### Group Practice
+
+1.  Can you figure out a way to scrape the ranking of each player? *Hint: remember parse_number() will pull anything numeric out of a string.*
+2.  Create a tibble that contains each player's name in one variable and their ranking in another. Use good naming conventions for the variable names.
+3.  See what happens when you try to scrape: their positions? their country's flags? the paragraphs describing each player?
+
+```{r}
+#Group practice
+library(rvest)
+library(tidyverse)
+
+
+```
+
+### More web scraping examples
+
+Pulling the names of [Martha Stewart's slow cooker recipes](https://www.marthastewart.com/1513016/slow-cooking):
+
+```{r}
+martha_link <- "https://www.marthastewart.com/1513016/slow-cooking"
+martha_page <- read_html(martha_link)
+martha_recipes <- html_text(html_elements(martha_page,".card__title"))
+martha_recipes
+```
+
+Pulling the names [UT Austin Women's Tennis Roster](https://texaslonghorns.com/sports/womens-tennis/roster/2022-23):
+
+```{r}
+UTtennis_link <- "https://texaslonghorns.com/sports/womens-tennis/roster/2022-23"
+UTtennis_page <- read_html(UTtennis_link)
+UTtennis_names <- html_text(html_elements(UTtennis_page,".sidearm-roster-player-name a"))
+UTtennis_names
+
+```
+
+### Group Practice
+
+Try scraping data from one or more of these sites, or find your own!
+
+1.  The Austin Chronicle's ["Best of" Austin restaurants](https://www.austinchronicle.com/best-of-austin-restaurants/year:2023/poll:readers/category:cuisine/).
+2.  IMDB's [top rated films list](https://www.imdb.com/search/title/?groups=top_100&sort=user_rating,desc).
+3.  [Top TV series of all time](https://guides.library.upenn.edu/cims/besttv).
+4.  [Top travel destinations](https://www.forbes.com/sites/laurabegleybloom/2019/09/04/bucket-list-travel-the-top-50-places-in-the-world/?sh=248d064820cf).
+
+```{r}
+# Group practice
+
+```
+
+### Looking ahead... Project 2
+
+[Project 2](https://utexas.instructure.com/courses/1399983/assignments/6755369) is due Nov. 15, but you must first [get your dataset(s) approved](https://utexas.instructure.com/courses/1399983/assignments/6755370). Take a look at the assignment directions now and come to drop-in hours if you have any questions!

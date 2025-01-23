@@ -1,0 +1,104 @@
+---
+title: "Homework 2"
+output:
+  html_document: default
+date: "September 20, 2024"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r cars, echo=FALSE}
+# setting up working enviornment 
+setwd("~/Documents/UT/SDS 313/7 Homework 2")
+data <- read.csv("Homework2_leprosy.csv")
+library(ggplot2)
+```
+
+## Question 1
+
+Which country had the highest number of new leprosy cases in 2022? Why is it not a fair comparison to look at the raw number of cases when comparing prevalence of the disease across different countries?
+
+```{r, echo=FALSE}
+maxCases <- data[which.max(data$New_Cases),]
+```
+
+[The country with the highest number of new leprosy cases in 2022 was India with 103,819 new cases. It is not a fair comparison to look at the raw number of cases when comparing prevalence of the disease across different countries because you also have to take into account the density of the country and population of the country. While India might have the highest number of cases, it is less than 0.01% of the population, when compared to Comoros, which has only 263 cases but that is almost 3% of the population!]{style="color: purple;"}
+
+```{r, echo=FALSE}
+data$prevalence <- data$New_Cases / data$Population * 100
+print(data[which.max(data$prevalence),])
+print(data[data$Country == "India",])
+```
+
+## Question 2
+
+Create a new variable in the dataset that provides the leprosy cases per 100K people in each country. Graph this new variable’s distribution and provide the relevant summary statistics inline within a short paragraph describing the distribution.
+
+[The minimum and Q1 of the distribution of leprosy cases per 100K people in each country is both 0. The median is 11.43 cases per 100K people. The Q3 was 105.08 cases per 100K people, and the max was 2960.45 per 100K people]{style="color: purple;"}
+
+```{r, echo=FALSE}
+data$casesPer100 <- data$prevalence*1000
+hist(data$casesPer100,main='Distribution of Leprosy Cases per 100k People',xlab='Cases', pch=20)
+
+fivenum(data$casesPer100) # (min, Q1, median, Q3, max)
+```
+
+## Question 3
+
+We want to compare cases per 100K across the different regions in this dataset. In a single plot output, create a graph that shows the distribution of cases per 100K split by region. Output a nicely formatted table that provides the region name, number of countries in that region, and the median cases per 100K for each region. Include a short paragraph summarizing differences in leprosy prevalence across regions.
+
+[Leprosy prevalence across regions varies significantly. Some regions, such as Africa, have higher median cases per 100K compared to Europe and the Americas, which tend to have fewer cases. The wide variation between regions indicates that leprosy is still a serious issue in some parts of the world, while other regions have almost eradicated the disease.]{style="color: purple;"}
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE}
+regions_summary <- aggregate(casesPer100 ~ Region, data=data, FUN=function(x) c(median=median(x), count=length(x)))
+regions_summary <- do.call(data.frame, regions_summary)
+
+library(knitr)
+library(kableExtra)
+
+#
+colnames(regions_summary) <- c("Region", "Median Cases per 100K", "Number of Countries")
+
+formatted_table <- kable(regions_summary, "html", 
+                          caption = "Leprosy Cases per 100K by Region Summary") %>%
+  kable_styling(full_width = F, position = "left") %>%
+  column_spec(1, bold = TRUE) %>%
+  column_spec(2, color = "blue") %>%
+  column_spec(3, color = "darkgreen")
+
+formatted_table
+#
+
+ggplot(data, aes(x = casesPer100, fill = Region)) + 
+  geom_boxplot(position = "dodge") +
+  labs(title = "Distribution of Leprosy Cases per 100K by Region", x = "Cases per 100K", y = "Count") 
+```
+
+## Question 4
+
+Investigate the relationship between cases per 100K and one of the other variables in the dataset (other than region) by making the appropriate bivariate graph and providing the relevant summary statistic inline within a short paragraph describing the relationship.
+
+```{r, echo=FALSE}
+
+data$GDP_per_capita <- data$GDP_billions * 1e9 / data$Population
+
+```
+
+[I investigated the relationship between leprosy cases per 100K people and GDP per capita. The analysis revealed a weak negative correlation between the two variables, indicating that countries with lower GDP per capita tend to have higher leprosy cases per 100K people. This suggests that wealthier countries are likely to have better healthcare infrastructure, which can contribute to lower leprosy prevalence. However, there are notable outliers, such as Brazil, where despite having a higher GDP, the leprosy cases remain significantly elevated. This points to the complexity of leprosy distribution, which is influenced by multiple factors beyond just economic indicators. The correlation coefficient was about `r round(cor(na.omit(data[, c("New_Cases", "GDP_per_capita")]))[1, 2], digits = 2)`, which suggests a slight negative correlation]{style="color: purple;"}
+
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE,error=FALSE}
+ggplot(data, aes(x = GDP_per_capita, y = New_Cases / Population * 100000)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Relationship between GDP per Capita and Leprosy Cases per 100K",
+       x = "GDP per Capita", y = "Leprosy Cases per 100K")
+```
+
+## Question 5
+
+Write a brief conclusion to your analysis summarizing what you found. Include a hyperlink to the website for the International Leprosy Association for readers wanting more information about this disease.
+
+[While India reported the highest number of new cases in 2022, the prevalence per population reveals a more nuanced picture, indicating that smaller countries like Comoros face disproportionately high rates. The relationship between leprosy cases and GDP per capita suggests that economic factors play a role in disease prevalence, though exceptions exist that remind us of the multifaceted nature of public health. This emphasizes the importance of tailored healthcare interventions and further research into social determinants affecting leprosy's distribution. For those interested in learning more about leprosy and its global impact, I encourage you to ]{style="color: purple;"}<a href="https://www.leprosy-information.org/" target="_blank"> learn more about Leprosy at the International Leprosy Association's website</a>

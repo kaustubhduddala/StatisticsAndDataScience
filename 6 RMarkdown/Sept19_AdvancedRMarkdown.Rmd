@@ -1,0 +1,59 @@
+---
+title: "SDS 313 Week 4 - Advanced R Markdown"
+output: html_document
+date: "2024-09-19"
+---
+
+## Advanced R Markdown Options
+
+Now that we're comfortable knitting .html reports, let's add some more features to our RMarkdown files:
+
+-   Navigation features.
+-   Toggling code view on/off.
+-   Text formatting options.
+-   Formatted tables with the *kabelExtra* package*.*
+
+## Navigation and Toggling Code
+
+When knitting to .html, there are several ways you can help your audience navigate across different analyses or sections of your report:
+
+-   Include a [clickable table of contents](https://bookdown.org/yihui/rmarkdown/html-document.html).
+-   Add your own [internal links](https://www.r-bloggers.com/2022/09/r-markdown-lesser-known-tips-tricks-4-looks-better-works-better/) within your report (scroll down to #6).
+-   [Create tabs](https://www.r-bloggers.com/2022/09/r-markdown-lesser-known-tips-tricks-4-looks-better-works-better/) to hold different sections of your report (scroll down to #3).
+
+You also don't necessarily have to choose to show or hide your code - you can let your audience [toggle it](https://www.r-bloggers.com/2022/09/r-markdown-lesser-known-tips-tricks-4-looks-better-works-better/) (see first example).
+
+## Group Practice 1
+
+Open the *Example2.Rmd* and update it to include the following:
+
+1.  A **floating** table of contents. Play around with the depth of the headings that it recognizes.
+2.  An internal link within section #2 that takes you down to the comparison in section #3, as well as a link in section #3 that takes you back up to section #2.
+3.  Hide all the code but allow the reader to toggle it on.
+4.  Knit to .html to confirm everything worked!
+
+## Text Formatting
+
+It is sometimes helpful to highlight or set apart some of your text by changing the font and/or color.
+
+-   Using html <span> command to [change text color](https://bookdown.org/yihui/rmarkdown-cookbook/font-color.html).
+-   Using html paragraph command to [change font family](https://www.reddit.com/r/RStudio/comments/ptza59/knit_how_to_choose_font_size_and_type/).
+
+## kableExtra
+
+If we want to show the output from our code in a nicer format than what we see directly in the console, the [*kableExtra* package](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html) has some functions to make that happen. To do this, we must:
+
+-   **Create a data frame** that shows everything we want our table to show.
+-   Update the "variable" names to what we want our column names to be.
+-   Round any numeric values to something reasonable.
+
+See the example in section #4 of *Example2.Rmd*.
+
+## Group Practice 2
+
+Within the *Example2.Rmd*, now update the following:
+
+1.  Change the color of the words "Texas Teams" in the text at the beginning of section #3 to your favorite color.
+2.  Update all of the text in section #2 to the Times font family and size 16.
+3.  Add the standard deviation of batting averages for each team in the kable in section #4.
+4.  Take screen-shots of any of items you attempted and paste them on your [group's slide](https://docs.google.com/presentation/d/1dD7Mn2YNGz2INQRh5toxPwvBKScJUBfoEtmtloeLzKY/edit?usp=sharing).

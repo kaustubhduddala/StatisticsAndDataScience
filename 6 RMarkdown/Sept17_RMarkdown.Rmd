@@ -1,0 +1,62 @@
+---
+title: "SDS 313 Week 4 - R Markdown"
+output: html_document
+date: "2024-09-17"
+---
+
+## Creating R Markdown Reports
+
+In the next two classes, we'll focus on:
+
+-   Understanding the *source* of .Rmd files
+-   Knitting .html and .pdf reports
+-   Playing around with advanced Rmarkdown edits
+
+We've been using R Markdown files in the *visual* mode for a while during lectures, but today is when you all will create your own.
+
+## Examples
+
+Check out these examples:
+
+-   [Our textbook, using "bookdown"](https://r4ds.had.co.nz/)
+-   The "handouts" from the first week of class
+-   [.pdf articles](https://github.com/svmiller/svm-r-markdown-templates/blob/master/article-example/svm-rmarkdown-article-example.pdf)
+
+## Structure of .Rmd Files
+
+Open the *Example.Rmd* and notice the following structure:
+
+-   YAML metadata
+-   Text
+-   Code chunks
+
+## Why use RMarkdown?
+
+There are many advantages to using RMarkdown. Write some below:
+
+-   cleaner
+-   code blocks
+-   able to explain what code is doing
+
+Check out the [RMarkdown Cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) for reference as you work on the following exercises.
+
+## Group Practice 1
+
+Within the *Example.Rmd* file:
+
+1.  Change the title and author of the file.
+2.  Under *1. Dataset Information*, create a sub-header called *Cases* and output the first few rows of the data using the **head( )** function.
+3.  Under *4. Graphs*, put the standard deviation of *Days.to.Adoption*, rounded to 2 decimal places, in the text and suppress the code for the histogram.
+4.  Knit your file to an .html and .pdf.
+
+## Group Practice 2
+
+Create a new RMarkdown file that includes the following:
+
+1.  Pick another variable from this dataset and investigate if the number of days to adoption is related to it or not. Create a relevant visual and calculate any relevant statistics.
+2.  Remove any extraneous code/output from the RMarkdown and knit to .html or .pdf.
+3.  Extras:
+    -   Present your descriptive statistics in a bulleted list.
+    -   Include a hyperlink to the Austin Animal Shelter's website.
+    -   Include a picture of a cute cat or dog.
+4.  Take a screen-shot of your knitted report and paste it on your [group's slide](https://docs.google.com/presentation/d/1dD7Mn2YNGz2INQRh5toxPwvBKScJUBfoEtmtloeLzKY/edit?usp=sharing).

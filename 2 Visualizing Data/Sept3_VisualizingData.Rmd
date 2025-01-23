@@ -1,0 +1,261 @@
+---
+title: "SDS 313 Week 2 - Visualizing and Describing Data"
+output: html_document
+date: "2024-09-03"
+---
+
+## Visualizing and Describing Data
+
+In the next two classes, we'll be:
+
+-   Plotting different types of data
+-   Running univariate and bivariate descriptive statistics
+-   Looking at the ggplot graphics package
+
+We'll be working with *R Markdown* files during lectures throughout the rest of the semester (we'll learn to make our own in a couple of weeks).
+
+Each file will contain text in addition to code "chunks," which act the same way as submitting code to the console.
+
+Hit the run button (little green triangle) in the upper right to see this in action:
+
+```{r}
+#Run this chunk
+5+2
+```
+
+### Import Dataset
+
+The default working directory of any *R Markdown* file will be the folder where it is saved. So as long as your dataset is in the same folder, you don't need need to worry about file paths:
+
+```{r}
+med <- read.csv('medicaldata.csv')
+```
+
+What code can we use to get familiar with the variables in this dataset?
+
+```{r}
+#Write some code to visualize the variables in this dataset:
+
+```
+
+## Summarizing a Categorical Variable
+
+A categorical variable defines membership in a group.
+
+-   Describe with: *frequencies or proportions*
+-   Display with: *bar graph*
+
+```{r}
+#Frequency table
+table(med$Diabetic)
+
+#Proportions
+prop.table(table(med$Diabetic))
+```
+
+```{r}
+#Bar graph
+barplot(table(med$Diabetic))
+```
+
+If we want to label the categories:
+
+```{r}
+#Update dummy values with labels
+med$Diabetic <- factor(med$Diabetic, labels=c('No','Yes'))
+
+#See the difference?
+table(med$Diabetic)
+barplot(table(med$Diabetic))
+```
+
+We should also add some options:
+
+```{r}
+#Nicer looking bar graph
+barplot(table(med$Diabetic),main='Frequency of Diabetic Status',xlab='Diabetic Status',ylab='Frequency',ylim=c(0,100),col=c('aquamarine','purple'))
+```
+
+Here are some other resources that can help make your base R plots look nicer:
+
+-   [Graph parameters](http://www.statmethods.net/advgraphs/parameters.html)
+-   [Color list](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
+-   [Nice color palettes](http://colorbrewer2.org/)
+
+Update the bar graph with your two favorite colors. Try calling them with their hexidecimal code:
+
+```{r}
+#Bar graph with your colors:
+
+```
+
+## Summarizing a Numeric Variable
+
+A numeric variable is a quantitative measurement.
+
+-   Describe with:
+    -   Center: *mean or median*
+    -   Spread: *standard deviation or inner-quartile range (IQR)*
+-   Display with: *histogram or boxplot*
+
+```{r}
+#Mean (average value)
+mean(med$Cholesterol)
+
+#Median (50th percentile)
+median(med$Cholesterol)
+```
+
+```{r}
+#Standard deviation (average distance to the mean)
+sd(med$Cholesterol)
+
+#Five-number summary (min, Q1, median, Q3, max)
+fivenum(med$Cholesterol)
+
+#Inner-quartile range (Q3-Q1)
+IQR(med$Cholesterol)
+```
+
+When do we use which measures of center/spread? It depends on the shape of the distribution:
+
+-   **Symmetric** distributions: mean, standard deviation
+-   **Skewed** distributions: median, IQR
+
+We'll need to visualize the distribution to determine its shape:
+
+```{r}
+#Basic histogram
+hist(med$Cholesterol)
+
+#Nicer looking histogram
+hist(med$Cholesterol,main='Histogram of Cholesterol',xlab='Cholesterol (mg/dL)',col='dark green',xlim=c(0,2000),ylim=c(0,120))
+```
+
+```{r}
+#Basic boxplot
+boxplot(med$Cholesterol)
+
+#Nicer looking boxplot
+boxplot(med$Cholesterol,main='Boxplot of Cholesterol',ylab='Cholesterol (mg/dL)', pch=20)
+
+#Horizontal boxplot
+boxplot(med$Cholesterol,main='Boxplot of Cholesterol',xlab='Cholesterol (mg/dL)', pch=20, horizontal=TRUE)
+```
+
+### Group Practice
+
+1.  Pick a variable from this dataset we haven't see yet (not diabetic status or cholesterol). Describe and display its distribution.
+2.  Change the default color of your plot and update the title and axis labels.
+3.  Go to your group's slide [here](https://docs.google.com/presentation/d/1dD7Mn2YNGz2INQRh5toxPwvBKScJUBfoEtmtloeLzKY/edit?usp=sharing) and write everyone's names at the top. Then copy/paste your graph onto your slide.
+
+```{r}
+#Group practice plot:
+
+```
+
+## Summarizing a Bivariate Relationship
+
+### 2 Numeric Variables
+
+-   Describe with: *correlation*
+    -   *-1 \< r \< 1*
+-   Display with: *scatterplot*
+
+```{r}
+#Pearson correlation coefficient
+cor(med$BMI,med$BP)
+```
+
+```{r}
+#Basic scatterplot
+plot(med$BMI,med$BP)
+
+#Nicer looking scatterplot
+plot(med$BMI,med$BP,main='BMI and Blood Pressure',xlab='BMI',ylab='Blood Pressure (mmHg)',pch=20)
+```
+
+### 2 Categorical Variables
+
+-   Describe with: *row or column proportions*
+-   Display with: *two-way frequency table or grouped bar graph*
+
+Let's label the edema status variable like we did diabetic:
+
+```{r}
+#Add labels to Edema variable
+med$Edema <- factor(med$Edema, labels=c('No','Yes'))
+
+#Two-way frequency table
+table(med$Diabetic,med$Edema)
+```
+
+```{r}
+#Proportion options for two-way table
+prop.table(table(med$Diabetic,med$Edema))
+prop.table(table(med$Diabetic,med$Edema),1)
+prop.table(table(med$Diabetic,med$Edema),2)
+```
+
+```{r}
+#Side-by-side grouped bar graph
+barplot(table(med$Diabetic,med$Edema),main='Diabetes and Edema Status',ylab='Frequency',col=c('#018571','#b2abd2'),beside=T, xlab='Edema Status')
+```
+
+We can also "stack" are bar chart to look at proportions. What should we insert into the barplot() function instead of our table()?
+
+```{r}
+#Make "stacked" bar chart: replace ???? with the appropriate function
+barplot(????(table(med$Diabetic,med$Edema),2),main='Diabetes and Edema Status', ylab='Proportion', col=c('#018571', '#b2abd2'), xlab='Edema Status')
+```
+
+### 1 Numeric and 1 Categorical Variable
+
+-   Describe with: *compare center/spread of each group*
+-   Display with: *grouped histogram or grouped boxplot*
+
+```{r}
+#Descriptive statistics by group
+aggregate(BP~Diabetic, data=med, mean)
+```
+
+```{r}
+#What about the standard deviations of each group?
+
+```
+
+Sub-setting practice:
+
+```{r}
+#Create subsets for each Diabetic group:
+Diabetic <- 
+NonDiabetic <- 
+```
+
+```{r}
+hist(Diabetic$BP,main='Histogram of Blood Pressure',xlab='Blood Pressure (mmHg))',col='#31a35475',ylim=c(0,25),xlim=c(40,100))
+
+hist(NonDiabetic$BP,col='#756bb175',add=T)
+```
+
+```{r}
+boxplot(med$BP~med$Diabetic, main='Diastolic Blood Pressure',ylab='Blood Pressure (mg/dL)',xlab='Diabetic Status',names=c('No','Yes'),col=c('#0571b0','#ca0020'))
+```
+
+### Group Practice
+
+1.  Pick a variable that might be related to Saliva Glucose Level (Glucose). Describe and display the bivariate relationship.
+2.  Post your graph on your group's slide [here](https://docs.google.com/presentation/d/1dD7Mn2YNGz2INQRh5toxPwvBKScJUBfoEtmtloeLzKY/edit?usp=sharing).
+
+```{r}
+#Group practice plot:
+
+```
+
+*Before next class, make sure you have the following packages ready:*
+
+```{r}
+#Do you have these packages installed?
+library(ggplot2)
+library(RColorBrewer)
+```

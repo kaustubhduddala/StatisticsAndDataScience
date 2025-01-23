@@ -1,0 +1,72 @@
+---
+title: "Working example of RMarkdown"
+author: "Kaustubh Duddala - SDS 313 UT Austin"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+
+```{r global_options, echo=FALSE}
+knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=60))
+```
+
+------------------------------------------------------------------------
+
+# **1. Dataset Information**
+
+The **shelter.csv** dataset contains variables collected from adult cats and dogs that were adopted at the Austin Animal shelter over the course of one month.
+
+First, you'll want to import in the dataset (note that the default working directory is the folder in which this .Rmd file is located):
+
+```{r}
+shelter <- read.csv('shelter.csv')
+```
+
+# **2. Making Tables**
+
+You can create a table manually like the example below, which describes the variables in this dataset:
+
+| Variable         | Description                       |
+|------------------|-----------------------------------|
+| ID               | Unique identifier                 |
+| Intake.Type      | How animal arrived at the shelter |
+| Species          | Dog or cat                        |
+| Sex              | Female or male                    |
+| Age.Intake       | Age (years) at intake             |
+| Condition        | Animal's health condition         |
+| Intake.Weight    | Weight (lbs) at intake            |
+| Adopted.Weight   | Weight (lbs) at adoption          |
+| Days.to.Adoption | Days spent in the shelter         |
+
+# **3. Code and Output**
+
+Code is run linearly (dependent on what is run above):
+
+```{r}
+mean(shelter$Days.to.Adoption)
+```
+
+You can suppress the code:
+
+```{r echo=FALSE}
+mean(shelter$Days.to.Adoption)
+```
+
+You can also suppress the output:
+
+```{r results='hide'}
+mean(shelter$Days.to.Adoption)
+```
+
+# **4. Graphs and Embedding Code**
+
+On average, animals spent `r mean(shelter$Days.to.Adoption)` days before being adopted.
+
+```{r}
+# Make a histogram of days to adopt variable
+library(ggplot2)
+ggplot(shelter, aes(x=Days.to.Adoption)) +  geom_histogram(binwidth=10, col='black', fill='maroon') + xlab('Number of Days to Adoption') + ggtitle('Distribution of Days to Adoption') + theme_classic()
+```
+
+------------------------------------------------------------------------

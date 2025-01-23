@@ -1,0 +1,123 @@
+---
+title: "Homework 4"
+output: html_document
+date: "2024-10-11"
+---
+
+```{r setup, echo=FALSE, include=FALSE}
+library(tidyverse)
+library(kableExtra)
+setwd("~/Documents/UT/SDS 313/13 Homework 4")
+```
+
+## Part 1
+
+# 1.1.
+
+```{r, echo=FALSE, include=FALSE}
+bonds_data <- as_tibble(read_csv("Homework1_Bonds.csv"))
+```
+
+```{r}
+travis_bonds_data <- bonds_data %>%
+  filter(County == "Travis") %>%
+  mutate(ElectionDate = mdy(ElectionDate)) %>%
+  mutate(ElectionDate = if_else(year(ElectionDate) > 2024, ElectionDate - years(100), ElectionDate))
+print(nrow(travis_bonds_data))
+```
+
+The total bonds in Travis county is 312. I fixed some of the date that looked wrong by changing their year to a more reasonable one, for example changing 2059 to 1959 by just taking away 100 years.
+
+# 1.2.
+
+```{r}
+
+travis_bonds_data <- mutate(travis_bonds_data, month = format(ElectionDate, "%m"), day_of_week = weekdays(ElectionDate))
+
+month_counts <- count(travis_bonds_data, month)
+
+day_counts <- count(travis_bonds_data, day_of_week) 
+
+ggplot(month_counts, aes(x = month, y = n)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Bonds Carried by Month", x = "Month", y = "Number Carried") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplot(day_counts, aes(x = day_of_week, y = n)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Bonds Carried by Month", x = "Day of Week", y = "Number Carried") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+The month with the more bond election dates was May and the day of the week with the most bond election dates was Saturday
+
+# 1.3.
+```{r}
+monthly_summary <- travis_bonds_data %>%
+  group_by(month) %>%
+  summarise(carry = sum(Result == "Carried") / n())
+
+day_summary <- travis_bonds_data %>%
+  group_by(day_of_week) %>%
+  summarise(carry = sum(Result == "Carried") / n())
+
+ggplot(monthly_summary, aes(x = month, y = carry)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Percentage of Bonds Carried by Month", x = "Month", y = "Percentage Carried") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggplot(day_summary, aes(x = day_of_week, y = carry)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Percentage of Bonds Carried by Day of the Week", x = "Day of the Week", y = "Percentage Carried")
+
+
+```
+Bonds were commonly carried (by percentage) in March, April, June, July, and October (at 100%), with the lowest in January and none in August or December.
+
+The bonds were most commonly carried on Sunday on Friday (at 100%), with Tuesday being the lowest, and none on Monday Wednesday or Friday.
+
+## Part 2
+
+```{r, echo=FALSE, include=FALSE}
+food_data <- read_csv("Homework4_food.csv")
+```
+
+# 2.1.
+
+```{r}
+
+lowIncome <- select(food_data, County, Population, State, "Low Access Numbers.Low Income People.1/2 Mile", "Low Access Numbers.Low Income People.1 Mile", "Low Access Numbers.Low Income People.10 Miles", "Low Access Numbers.Low Income People.20 Miles")
+
+lowIncome <- rename(lowIncome, LI_halfmile = "Low Access Numbers.Low Income People.1/2 Mile", LI_mile = "Low Access Numbers.Low Income People.1 Mile", LI_10Mile = "Low Access Numbers.Low Income People.10 Miles", LI_20Mile = "Low Access Numbers.Low Income People.20 Miles")
+
+```
+
+I chose the population Low Income People for various mile markers from the nearest supermarket.
+
+# 2.2.
+
+```{r}
+
+data_reshaped <- pivot_longer(lowIncome, cols = starts_with("LI"), names_to = "Distance", values_to = "pop_count") %>%
+  mutate(Distance = case_when(
+    Distance == "LI_halfmile" ~ 0.5,
+    Distance == "LI_mile" ~ 1,
+    Distance == "LI_10Mile" ~ 10,
+    Distance == "LI_20Mile" ~ 20
+  ))
+
+data_reshaped <- arrange(data_reshaped, County)
+
+print(head(data_reshaped,10))
+
+
+```
+
+# 2.3.
+```{r}
+
+meanPopulation <- group_by(data_reshaped, Distance) %>%
+  summarise(meanPopulationCount = mean(pop_count, na.rm = TRUE))
+
+kable(meanPopulation, caption = "Mean Population Count by Distance (Filtered by Low Income)", digits = 2)
+
+```

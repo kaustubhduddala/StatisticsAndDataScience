@@ -1,0 +1,153 @@
+---
+title: "Project 1"
+author: "Tucker Bullock"
+date: "2024-09-24"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r global_options, echo=FALSE}
+knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, message=FALSE)
+suppressPackageStartupMessages({
+library(kableExtra)
+library(ggplot2)
+library(dplyr)})
+```
+
+-----------------------------------------------------------------------
+# *1. Introduction*
+Note: I took a little bit of a different approach by creating a subset of genres (there were too many genres to do all of them), a categorical variable, as my outcome variable. Of course it still meets the requirements on the rubric (for the bivariate graphs the descriptive statistics are different, but I introduced correlation through analysis of variance)
+Normally this wouldn't make much sense; the data conclusions would be pretty meaningless. For example, if you're an artist, you wouldn't just switch genres of music based on findings of this data. But my reasoning was this; I think it is still valuable information to know when the "best" of each genre was made, and how popular these genres are on spotify. I had hypotheses that the best rock albums would be mostly in the 70s, and the older the audience of the genre, the less popularity it would have on spotify. With the univariate graph, I wanted to see what genres these voters were biased towards when creating the top 500. 
+ 
+
+This dataset comes from the top 500 ranked albums according to Rolling Stone in 2020. The top albums are based on the opinions of 336 voters that work for Rolling Stone. The variables in the dataset include the year it was released, genre of album, the number of weeks and top spot it made on the Billboard charts, its popularity on Spotify, type of album, and more. The Rolling Stone released a spreadsheet with this data on each of their albums, and it was compiled into a dataset by online users [(linked here).](https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-05-07/readme.md) The outcome variable of interest is the genre of album (what kind of rock), and the predictors will be the release year, type of album, and popularity on spotify. Learn more about what spotify popularity is and how it is calculated [here.](https://medium.com/protonradio/introducing-spotify-popularity-scores-know-which-artists-can-help-you-grow-879cbf78fb98#:~:text=You're%20likely%20already%20familiar,temperature%E2%80%9D%20in%20the%20almighty%20algorithm.)
+
+![Rolling Stones Top 500]
+Source: Brady, L. (2021). Rolling Stone’s “The 500 Greatest Albums of All Time:” The good, the bad and the 70s. Pelham Examiner. https://pelhamexaminer.com/37166/entertainment/rolling-stones-the-500-greatest-albums-of-all-time-the-good-the-bad-and-the-70s-part-1/#
+
+
+# *2. Univariate Distribution of Outcome Variable*
+
+```{r, echo=FALSE}
+#read and clean up dataframe
+ albumsDirty <- read.csv('Project1_Albums.csv')
+ albums <- na.omit(albumsDirty)
+ rockAlbums <- rockAlbums <- albums[grepl("Rock", albums$genre),]
+ 
+```
+
+```{r, fig.width=11, fig.height=8, echo=FALSE}
+
+genre_counts <- table(rockAlbums$genre)
+ggRockAlbums <- ggplot(rockAlbums)
+
+ggRockAlbums + 
+geom_bar(aes(x= genre), col ='black', fill= '#DAB1DA') + 
+  labs(title= 'Distribution of genres in the Top 500 Albums',
+      subtitle= paste("Total # of Rock Albums in the Top 500:", sum(genre_counts) ), x = 'Genre', y= 'Frequency') +theme_minimal() + theme(axis.text.x = element_text(size =10, angle = 90))
+
+invisible(median(genre_counts))
+invisible(quantile(genre_counts, 0.25)) 
+invisible(quantile(genre_counts, 0.75))  
+invisible(IQR(genre_counts))
+invisible(min(genre_counts))
+invisible(max(genre_counts))
+invisible(sd(genre_counts))
+range_var <- diff(range(genre_counts))
+invisible(range_var)
+total_genres <- sum(genre_counts)
+invisible(total_genres)
+invisible(round(mean(table(rockAlbums$genre)), 2))
+
+```
+There are `r total_genres` "rock" albums in the dataset, making Rock Genres 26.2% of the entire list. The distribution has a standard deviation of approximately 13.67. The median is 20.5 albums. On average, each genre appears about 21.83 times. The most common genre is Indie/Alternative Rock, which makes it the mode. The range of the genre frequencies is `r range_var`, which is the difference between the frequency of "Indie/Alternative Rock" with 41, and "Rock n' Roll/Rhythm and Blues" with 4. The first quartile is 13.25 albums and the third quartile is 30.75 albums, making for an IQR of 17.5 albums.
+
+
+
+# *3. Bivariate Distributions with Outcome variable*
+
+```{r, fig.width=11, fig.height=8, echo=FALSE}
+#output the graph(s)
+ggRockAlbums + geom_boxplot(aes(x= release_year, y= genre, fill= genre)) +
+theme_bw() + labs(title= bquote("Distribution of Release Years by " * bold("Rock") * " genre "), x= "Release Year",y= "genre") +scale_fill_brewer(palette="Set2")
+  
+#center and spread of each boxplot:
+invisible(
+  rockAlbums %>% 
+  group_by(genre) %>% 
+  summarise(
+    Median = median(release_year),
+    IQR =IQR(release_year),
+    Min = min(release_year),
+    Max = max(release_year)
+  )
+)
+
+```
+The latest median release year is easily Indie/Alt Rock, with a median of 1995. Next is Singer-Songwriter/Heartland Rock, with a median of 1976, followed by a Hard Rock/Metal with a median of 1975. Even earlier is Country/Folk/Country Rock/Folk Rock with a median of 1973, then Blues/Blues Rock with a median of 1970, and lastly is Rock n' Roll/Rhythm & Blues with a median of 1966.5.
+
+The spread of these box plots varies greatly as well; Country/Folk/Country Rock/Folk Rock has by far the greatest IQR(27) and range, followed by the three genres with an IQR of 9-10, then finally is Singer-Songwriter/Heartland Rock with an IQR of 6.75 followed by Blues/Blues Rock with an IQR of 3.25.
+
+
+```{r, fig.width=11, fig.height=8, echo=FALSE}
+#output the graph(s)
+ggRockAlbums +geom_bar(aes(x =genre, fill = type), position = "stack") + theme_minimal() +labs(title = "Distribution of Types by Genre", x = "Genre", y = "Count") + 
+theme(axis.text.x = element_text(size = 10, angle = 90)) + 
+scale_fill_brewer(palette = "Set2")
+
+invisible({
+  genretable <- table(rockAlbums$genre,rockAlbums$type)
+   prop.table(genretable, margin = 1)
+   prop.table(genretable, margin = 2)  
+         })
+
+```
+Only 2 genres have a greatest hits album in the top 500; Rock n' Roll/Rhythm & Blues, and Country/Folk/Country Rock/Folk Rock. Indie/Alternative Rock,  Hard Rock/Metal, and Country/Folk/Country Rock/Folk Rock all have at least one live album in the top 500, and 12.5% of 
+the Blues/Blues Rock albums are live albums. All genres have majority studio albums, with the highest being Indie/Alt Rock with 97.56% studio albums, and the lowest being Rock n' Roll/Rhythm & Blues with 75%.
+
+
+```{r, fig.width=11, fig.height=8, echo=FALSE}
+#output the graph(s)
+
+ggRockAlbums + geom_boxplot(aes(x= genre, y= spotify_popularity, fill= genre)) + theme_classic()+labs(title= "Spotify Popularity by Genre", x= "genre",y= "Spotify Popularity") + theme(axis.text.x = element_text(size = 10,angle = 90)) + scale_fill_brewer(palette = "Set3")
+
+#center and spread of each boxplot:
+invisible(rockAlbums %>% 
+  group_by(genre)%>% 
+   summarise(
+    Median = median(spotify_popularity),
+    IQR = IQR(spotify_popularity),
+    Min = min(spotify_popularity),
+    Max = max(spotify_popularity))
+)
+```
+
+The highest median popularity is Indie/Alt Rock, with a median of 65, followed by Singer-Songwriter/Heartland Rock with a median of 64. Next is Blues/Blues Rock, with a median of 63.5, followed by Rock n' Roll/Rhythm & Blues with a median of 62.5. Lastly, Hard Rock/Metal and Country/Folk/Country Rock/Folk Rock both have a median of 58 spotify popularity.
+
+The spread of these box plots varies greatly as well; Indie/Alternative Rock has the highest range with a range of 48, followed by Rock n' Roll/Rhythm & Blues and Singer-Songwriter/Heartland Rock with 44. Lastly is Blues/Blues Rock with a range of 42, followed by Hard Rock/Metal with a range of 39, and at the end is Country/Folk/Country Rock/Folk Rock with a range of 34 spotify popularity.
+
+
+# *4. Five elements*
+
+A) Firstly, I used 2 or more in-line codes within my report, both appearing in the description for the univariate graph; I included the range with range_var, and the total number of albums of rock subgenres with total_genres.
+B) I also used 2 working hyperlinks, both in the introduction. The first one is a link to where the dataset was compiled by online users, and the second is to an article that talks more about what spotify popularity even is.
+C) I changed "Rock" to bold in the title of the first bivariate graph in order to emphasize that the graph was referencing a subset of all the genres, only subgenres of rock.
+D) I included a floating table of contents for easier navigation.
+F) I immediately created a subset of all the genres with only the rock genres; it makes sense in the context of the analysis in that we are comparing the subgenres of rock against each other. I used it for every analysis.
+
+
+
+# *5. Conclusion* 
+
+Firstly, we determined that the most appreciated rock genre in the top 500 was Indie/Alt Rock. From the first bivariate graph, we concluded the "best" decade for each rock genre (ex: hard rock in the 70s) based off of where the boxplot stands in the release years. This suggests some areas for future research in how the popularity and representation of various rock genres have evolved over different decades. In the second graph we determined that most albums included on the list across all genres were studio albums, but certain genres had more success with "live" performances or "best hits" albums. This suggests an area for future research regarding which genres/decades have more success with "live" albums and the correlations there. Lastly, we determined that across the different subgenres of rock, all the median spotify popularities hover around 55-65; it seems that newer/evolving genres are slightly more popular on spotify, such as Indie/Alt Rock.
+
+References:
+R for Data Science by Hadley Wickham and Garrett Grolemund.
+
+[What makes an album the greatest of all time?](https://pudding.cool/2024/03/greatest-music/)
+
+[Rolling Stone Album Rankings Datset](https://github.com/rfordatascience/tidytuesday/blob/master/data/2024/2024-05-07/readme.md)
+
+[Article on Spotify Popularity](https://medium.com/protonradio/introducing-spotify-popularity-scores-know-which-artists-can-help-you-grow-879cbf78fb98#:~:text=You're%20likely%20already%20familiar,temperature%E2%80%9D%20in%20the%20almighty%20algorithm.)

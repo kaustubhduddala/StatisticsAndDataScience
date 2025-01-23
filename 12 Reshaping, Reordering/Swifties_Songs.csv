@@ -1,0 +1,665 @@
+name,album,Attribute,Value
+All You Had To Do Was Stay,1989,danceability,0.602
+All You Had To Do Was Stay,1989,duration_ms,193293
+All You Had To Do Was Stay,1989,popularity,53
+All You Had To Do Was Stay,1989,tempo,96.969
+Bad Blood,1989,danceability,0.652
+Bad Blood,1989,duration_ms,211933
+Bad Blood,1989,popularity,71
+Bad Blood,1989,tempo,170.157
+Blank Space,1989,danceability,0.752
+Blank Space,1989,duration_ms,231826
+Blank Space,1989,popularity,60
+Blank Space,1989,tempo,96.009
+Clean,1989,danceability,0.81
+Clean,1989,duration_ms,271000
+Clean,1989,popularity,42
+Clean,1989,tempo,103.981
+How You Get The Girl,1989,danceability,0.764
+How You Get The Girl,1989,duration_ms,247533
+How You Get The Girl,1989,popularity,43
+How You Get The Girl,1989,tempo,119.982
+I Know Places,1989,danceability,0.595
+I Know Places,1989,duration_ms,195706
+I Know Places,1989,popularity,43
+I Know Places,1989,tempo,159.959
+I Wish You Would,1989,danceability,0.649
+I Wish You Would,1989,duration_ms,207440
+I Wish You Would,1989,popularity,42
+I Wish You Would,1989,tempo,118.027
+Out Of The Woods,1989,danceability,0.552
+Out Of The Woods,1989,duration_ms,235800
+Out Of The Woods,1989,popularity,46
+Out Of The Woods,1989,tempo,91.993
+Shake It Off,1989,danceability,0.648
+Shake It Off,1989,duration_ms,219200
+Shake It Off,1989,popularity,53
+Shake It Off,1989,tempo,160.02
+Style,1989,danceability,0.598
+Style,1989,duration_ms,231000
+Style,1989,popularity,56
+Style,1989,tempo,95.021
+This Love,1989,danceability,0.485
+This Love,1989,duration_ms,250093
+This Love,1989,popularity,42
+This Love,1989,tempo,71.981
+Welcome To New York,1989,danceability,0.793
+Welcome To New York,1989,duration_ms,212600
+Welcome To New York,1989,popularity,59
+Welcome To New York,1989,tempo,117.023
+Wildest Dreams,1989,danceability,0.553
+Wildest Dreams,1989,duration_ms,220440
+Wildest Dreams,1989,popularity,75
+Wildest Dreams,1989,tempo,140.06
+‘tis the damn season,evermore,danceability,0.575
+‘tis the damn season,evermore,duration_ms,229840
+‘tis the damn season,evermore,popularity,65
+‘tis the damn season,evermore,tempo,145.916
+champagne problems,evermore,danceability,0.462
+champagne problems,evermore,duration_ms,244000
+champagne problems,evermore,popularity,77
+champagne problems,evermore,tempo,171.319
+closure,evermore,danceability,0.689
+closure,evermore,duration_ms,180653
+closure,evermore,popularity,59
+closure,evermore,tempo,151.884
+coney island (feat. The National),evermore,danceability,0.537
+coney island (feat. The National),evermore,duration_ms,275320
+coney island (feat. The National),evermore,popularity,61
+coney island (feat. The National),evermore,tempo,107.895
+cowboy like me,evermore,danceability,0.604
+cowboy like me,evermore,duration_ms,275040
+cowboy like me,evermore,popularity,65
+cowboy like me,evermore,tempo,127.967
+dorothea,evermore,danceability,0.605
+dorothea,evermore,duration_ms,225880
+dorothea,evermore,popularity,62
+dorothea,evermore,tempo,119.966
+evermore (feat. Bon Iver),evermore,danceability,0.39
+evermore (feat. Bon Iver),evermore,duration_ms,304106
+evermore (feat. Bon Iver),evermore,popularity,63
+evermore (feat. Bon Iver),evermore,tempo,125.177
+gold rush,evermore,danceability,0.512
+gold rush,evermore,duration_ms,185320
+gold rush,evermore,popularity,67
+gold rush,evermore,tempo,112.05
+happiness,evermore,danceability,0.559
+happiness,evermore,duration_ms,315146
+happiness,evermore,popularity,64
+happiness,evermore,tempo,122.079
+ivy,evermore,danceability,0.515
+ivy,evermore,duration_ms,260440
+ivy,evermore,popularity,66
+ivy,evermore,tempo,88.856
+long story short,evermore,danceability,0.546
+long story short,evermore,duration_ms,215920
+long story short,evermore,popularity,62
+long story short,evermore,tempo,157.895
+marjorie,evermore,danceability,0.535
+marjorie,evermore,duration_ms,257773
+marjorie,evermore,popularity,70
+marjorie,evermore,tempo,96.103
+"no body, no crime (feat. HAIM)",evermore,danceability,0.546
+"no body, no crime (feat. HAIM)",evermore,duration_ms,215626
+"no body, no crime (feat. HAIM)",evermore,popularity,66
+"no body, no crime (feat. HAIM)",evermore,tempo,79.015
+tolerate it,evermore,danceability,0.316
+tolerate it,evermore,duration_ms,245440
+tolerate it,evermore,popularity,72
+tolerate it,evermore,tempo,74.952
+willow,evermore,danceability,0.392
+willow,evermore,duration_ms,214706
+willow,evermore,popularity,77
+willow,evermore,tempo,81.112
+august,folklore,danceability,0.532
+august,folklore,duration_ms,261922
+august,folklore,popularity,84
+august,folklore,tempo,89.937
+betty,folklore,danceability,0.593
+betty,folklore,duration_ms,294521
+betty,folklore,popularity,73
+betty,folklore,tempo,95.939
+cardigan,folklore,danceability,0.613
+cardigan,folklore,duration_ms,239560
+cardigan,folklore,popularity,84
+cardigan,folklore,tempo,130.033
+epiphany,folklore,danceability,0.175
+epiphany,folklore,duration_ms,289749
+epiphany,folklore,popularity,64
+epiphany,folklore,tempo,94.203
+exile (feat. Bon Iver),folklore,danceability,0.298
+exile (feat. Bon Iver),folklore,duration_ms,285634
+exile (feat. Bon Iver),folklore,popularity,77
+exile (feat. Bon Iver),folklore,tempo,75.602
+hoax,folklore,danceability,0.662
+hoax,folklore,duration_ms,220042
+hoax,folklore,popularity,65
+hoax,folklore,tempo,118.819
+illicit affairs,folklore,danceability,0.559
+illicit affairs,folklore,duration_ms,190898
+illicit affairs,folklore,popularity,77
+illicit affairs,folklore,tempo,119.845
+invisible string,folklore,danceability,0.653
+invisible string,folklore,duration_ms,252880
+invisible string,folklore,popularity,73
+invisible string,folklore,tempo,83.433
+mad woman,folklore,danceability,0.592
+mad woman,folklore,duration_ms,237258
+mad woman,folklore,popularity,65
+mad woman,folklore,tempo,141.916
+mirrorball,folklore,danceability,0.553
+mirrorball,folklore,duration_ms,208977
+mirrorball,folklore,popularity,73
+mirrorball,folklore,tempo,110.107
+my tears ricochet,folklore,danceability,0.469
+my tears ricochet,folklore,duration_ms,255893
+my tears ricochet,folklore,popularity,78
+my tears ricochet,folklore,tempo,129.86
+peace,folklore,danceability,0.647
+peace,folklore,duration_ms,234000
+peace,folklore,popularity,65
+peace,folklore,tempo,150.044
+seven,folklore,danceability,0.596
+seven,folklore,duration_ms,208906
+seven,folklore,popularity,70
+seven,folklore,tempo,94.922
+the 1,folklore,danceability,0.777
+the 1,folklore,duration_ms,210251
+the 1,folklore,popularity,74
+the 1,folklore,tempo,139.884
+the last great american dynasty,folklore,danceability,0.686
+the last great american dynasty,folklore,duration_ms,230999
+the last great american dynasty,folklore,popularity,70
+the last great american dynasty,folklore,tempo,147.922
+this is me trying,folklore,danceability,0.515
+this is me trying,folklore,duration_ms,195097
+this is me trying,folklore,popularity,73
+this is me trying,folklore,tempo,135.886
+Afterglow,Lover,danceability,0.756
+Afterglow,Lover,duration_ms,223293
+Afterglow,Lover,popularity,74
+Afterglow,Lover,tempo,111.011
+Cornelia Street,Lover,danceability,0.824
+Cornelia Street,Lover,duration_ms,287266
+Cornelia Street,Lover,popularity,74
+Cornelia Street,Lover,tempo,102.012
+Cruel Summer,Lover,danceability,0.552
+Cruel Summer,Lover,duration_ms,178426
+Cruel Summer,Lover,popularity,93
+Cruel Summer,Lover,tempo,169.994
+Daylight,Lover,danceability,0.557
+Daylight,Lover,duration_ms,293453
+Daylight,Lover,popularity,78
+Daylight,Lover,tempo,149.983
+Death By A Thousand Cuts,Lover,danceability,0.712
+Death By A Thousand Cuts,Lover,duration_ms,198533
+Death By A Thousand Cuts,Lover,popularity,72
+Death By A Thousand Cuts,Lover,tempo,94.071
+False God,Lover,danceability,0.739
+False God,Lover,duration_ms,200306
+False God,Lover,popularity,73
+False God,Lover,tempo,79.97
+I Forgot That You Existed,Lover,danceability,0.664
+I Forgot That You Existed,Lover,duration_ms,170640
+I Forgot That You Existed,Lover,popularity,71
+I Forgot That You Existed,Lover,tempo,92.875
+I Think He Knows,Lover,danceability,0.897
+I Think He Knows,Lover,duration_ms,173386
+I Think He Knows,Lover,popularity,72
+I Think He Knows,Lover,tempo,100.003
+It’s Nice To Have A Friend,Lover,danceability,0.737
+It’s Nice To Have A Friend,Lover,duration_ms,150440
+It’s Nice To Have A Friend,Lover,popularity,66
+It’s Nice To Have A Friend,Lover,tempo,70.008
+London Boy,Lover,danceability,0.695
+London Boy,Lover,duration_ms,190240
+London Boy,Lover,popularity,74
+London Boy,Lover,tempo,157.925
+Lover,Lover,danceability,0.359
+Lover,Lover,duration_ms,221306
+Lover,Lover,popularity,86
+Lover,Lover,tempo,68.534
+ME! (feat. Brendon Urie of Panic! At The Disco),Lover,danceability,0.61
+ME! (feat. Brendon Urie of Panic! At The Disco),Lover,duration_ms,193000
+ME! (feat. Brendon Urie of Panic! At The Disco),Lover,popularity,75
+ME! (feat. Brendon Urie of Panic! At The Disco),Lover,tempo,182.162
+Miss Americana & The Heartbreak Prince,Lover,danceability,0.662
+Miss Americana & The Heartbreak Prince,Lover,duration_ms,234146
+Miss Americana & The Heartbreak Prince,Lover,popularity,79
+Miss Americana & The Heartbreak Prince,Lover,tempo,150.088
+Paper Rings,Lover,danceability,0.811
+Paper Rings,Lover,duration_ms,222400
+Paper Rings,Lover,popularity,78
+Paper Rings,Lover,tempo,103.979
+Soon You’ll Get Better (feat. The Chicks),Lover,danceability,0.433
+Soon You’ll Get Better (feat. The Chicks),Lover,duration_ms,201586
+Soon You’ll Get Better (feat. The Chicks),Lover,popularity,66
+Soon You’ll Get Better (feat. The Chicks),Lover,tempo,207.476
+The Archer,Lover,danceability,0.292
+The Archer,Lover,duration_ms,211240
+The Archer,Lover,popularity,75
+The Archer,Lover,tempo,124.344
+The Man,Lover,danceability,0.777
+The Man,Lover,duration_ms,190360
+The Man,Lover,popularity,81
+The Man,Lover,tempo,110.048
+You Need To Calm Down,Lover,danceability,0.771
+You Need To Calm Down,Lover,duration_ms,171360
+You Need To Calm Down,Lover,popularity,80
+You Need To Calm Down,Lover,tempo,85.026
+Anti-Hero,Midnights,danceability,0.633
+Anti-Hero,Midnights,duration_ms,200690
+Anti-Hero,Midnights,popularity,85
+Anti-Hero,Midnights,tempo,96.888
+Bejeweled,Midnights,danceability,0.687
+Bejeweled,Midnights,duration_ms,194165
+Bejeweled,Midnights,popularity,77
+Bejeweled,Midnights,tempo,163.994
+Karma,Midnights,danceability,0.64
+Karma,Midnights,duration_ms,204852
+Karma,Midnights,popularity,80
+Karma,Midnights,tempo,90.008
+Labyrinth,Midnights,danceability,0.48
+Labyrinth,Midnights,duration_ms,247962
+Labyrinth,Midnights,popularity,70
+Labyrinth,Midnights,tempo,110.018
+Lavender Haze,Midnights,danceability,0.735
+Lavender Haze,Midnights,duration_ms,202395
+Lavender Haze,Midnights,popularity,77
+Lavender Haze,Midnights,tempo,97.05
+Maroon,Midnights,danceability,0.655
+Maroon,Midnights,duration_ms,218270
+Maroon,Midnights,popularity,72
+Maroon,Midnights,tempo,108.058
+Mastermind,Midnights,danceability,0.66
+Mastermind,Midnights,duration_ms,191039
+Mastermind,Midnights,popularity,72
+Mastermind,Midnights,tempo,125.96
+Midnight Rain,Midnights,danceability,0.604
+Midnight Rain,Midnights,duration_ms,174782
+Midnight Rain,Midnights,popularity,76
+Midnight Rain,Midnights,tempo,137.651
+Question...?,Midnights,danceability,0.654
+Question...?,Midnights,duration_ms,210556
+Question...?,Midnights,popularity,66
+Question...?,Midnights,tempo,108.874
+Snow On The Beach (feat. Lana Del Rey),Midnights,danceability,0.663
+Snow On The Beach (feat. Lana Del Rey),Midnights,duration_ms,256124
+Snow On The Beach (feat. Lana Del Rey),Midnights,popularity,69
+Snow On The Beach (feat. Lana Del Rey),Midnights,tempo,110.021
+Sweet Nothing,Midnights,danceability,0.336
+Sweet Nothing,Midnights,duration_ms,188496
+Sweet Nothing,Midnights,popularity,69
+Sweet Nothing,Midnights,tempo,176.48
+Vigilante Shit,Midnights,danceability,0.872
+Vigilante Shit,Midnights,duration_ms,164801
+Vigilante Shit,Midnights,popularity,74
+Vigilante Shit,Midnights,tempo,79.964
+"You're On Your Own, Kid",Midnights,danceability,0.696
+"You're On Your Own, Kid",Midnights,duration_ms,194206
+"You're On Your Own, Kid",Midnights,popularity,77
+"You're On Your Own, Kid",Midnights,tempo,120.032
+22,Red,danceability,0.658
+22,Red,duration_ms,230133
+22,Red,popularity,53
+22,Red,tempo,104.007
+All Too Well,Red,danceability,0.602
+All Too Well,Red,duration_ms,327893
+All Too Well,Red,popularity,44
+All Too Well,Red,tempo,93.06
+Begin Again,Red,danceability,0.53
+Begin Again,Red,duration_ms,237613
+Begin Again,Red,popularity,56
+Begin Again,Red,tempo,79.025
+Everything Has Changed,Red,danceability,0.624
+Everything Has Changed,Red,duration_ms,243933
+Everything Has Changed,Red,popularity,50
+Everything Has Changed,Red,tempo,80.017
+Holy Ground,Red,danceability,0.627
+Holy Ground,Red,duration_ms,201853
+Holy Ground,Red,popularity,37
+Holy Ground,Red,tempo,157.043
+I Almost Do,Red,danceability,0.567
+I Almost Do,Red,duration_ms,242573
+I Almost Do,Red,popularity,39
+I Almost Do,Red,tempo,145.865
+I Knew You Were Trouble.,Red,danceability,0.622
+I Knew You Were Trouble.,Red,duration_ms,217973
+I Knew You Were Trouble.,Red,popularity,61
+I Knew You Were Trouble.,Red,tempo,77.019
+Red,Red,danceability,0.602
+Red,Red,duration_ms,220826
+Red,Red,popularity,58
+Red,Red,tempo,124.978
+Sad Beautiful Tragic,Red,danceability,0.624
+Sad Beautiful Tragic,Red,duration_ms,283680
+Sad Beautiful Tragic,Red,popularity,35
+Sad Beautiful Tragic,Red,tempo,129.987
+Starlight,Red,danceability,0.649
+Starlight,Red,duration_ms,217826
+Starlight,Red,popularity,37
+Starlight,Red,tempo,126.018
+State Of Grace,Red,danceability,0.588
+State Of Grace,Red,duration_ms,295186
+State Of Grace,Red,popularity,40
+State Of Grace,Red,tempo,129.968
+Stay Stay Stay,Red,danceability,0.729
+Stay Stay Stay,Red,duration_ms,204826
+Stay Stay Stay,Red,popularity,39
+Stay Stay Stay,Red,tempo,99.981
+The Last Time,Red,danceability,0.505
+The Last Time,Red,duration_ms,298293
+The Last Time,Red,popularity,38
+The Last Time,Red,tempo,94.069
+The Lucky One,Red,danceability,0.706
+The Lucky One,Red,duration_ms,240133
+The Lucky One,Red,popularity,36
+The Lucky One,Red,tempo,117.937
+Treacherous,Red,danceability,0.705
+Treacherous,Red,duration_ms,240773
+Treacherous,Red,popularity,38
+Treacherous,Red,tempo,109.993
+We Are Never Ever Getting Back Together,Red,danceability,0.628
+We Are Never Ever Getting Back Together,Red,duration_ms,191880
+We Are Never Ever Getting Back Together,Red,popularity,59
+We Are Never Ever Getting Back Together,Red,tempo,85.984
+...Ready For It?,reputation,danceability,0.613
+...Ready For It?,reputation,duration_ms,208186
+...Ready For It?,reputation,popularity,82
+...Ready For It?,reputation,tempo,160.015
+Call It What You Want,reputation,danceability,0.598
+Call It What You Want,reputation,duration_ms,203506
+Call It What You Want,reputation,popularity,75
+Call It What You Want,reputation,tempo,163.954
+Dancing With Our Hands Tied,reputation,danceability,0.624
+Dancing With Our Hands Tied,reputation,duration_ms,211506
+Dancing With Our Hands Tied,reputation,popularity,72
+Dancing With Our Hands Tied,reputation,tempo,160.024
+Delicate,reputation,danceability,0.75
+Delicate,reputation,duration_ms,232253
+Delicate,reputation,popularity,81
+Delicate,reputation,tempo,95.045
+Don’t Blame Me,reputation,danceability,0.615
+Don’t Blame Me,reputation,duration_ms,236413
+Don’t Blame Me,reputation,popularity,85
+Don’t Blame Me,reputation,tempo,135.917
+Dress,reputation,danceability,0.719
+Dress,reputation,duration_ms,230373
+Dress,reputation,popularity,75
+Dress,reputation,tempo,120.085
+End Game,reputation,danceability,0.649
+End Game,reputation,duration_ms,244826
+End Game,reputation,popularity,74
+End Game,reputation,tempo,159.073
+Getaway Car,reputation,danceability,0.562
+Getaway Car,reputation,duration_ms,233626
+Getaway Car,reputation,popularity,79
+Getaway Car,reputation,tempo,172.054
+Gorgeous,reputation,danceability,0.8
+Gorgeous,reputation,duration_ms,209680
+Gorgeous,reputation,popularity,76
+Gorgeous,reputation,tempo,92.027
+I Did Something Bad,reputation,danceability,0.696
+I Did Something Bad,reputation,duration_ms,238253
+I Did Something Bad,reputation,popularity,75
+I Did Something Bad,reputation,tempo,82.989
+King Of My Heart,reputation,danceability,0.675
+King Of My Heart,reputation,duration_ms,214320
+King Of My Heart,reputation,popularity,72
+King Of My Heart,reputation,tempo,110.01
+Look What You Made Me Do,reputation,danceability,0.766
+Look What You Made Me Do,reputation,duration_ms,211853
+Look What You Made Me Do,reputation,popularity,81
+Look What You Made Me Do,reputation,tempo,128.07
+New Year’s Day,reputation,danceability,0.661
+New Year’s Day,reputation,duration_ms,235466
+New Year’s Day,reputation,popularity,70
+New Year’s Day,reputation,tempo,94.922
+So It Goes...,reputation,danceability,0.574
+So It Goes...,reputation,duration_ms,227906
+So It Goes...,reputation,popularity,69
+So It Goes...,reputation,tempo,74.957
+This Is Why We Can't Have Nice Things,reputation,danceability,0.567
+This Is Why We Can't Have Nice Things,reputation,duration_ms,207133
+This Is Why We Can't Have Nice Things,reputation,popularity,70
+This Is Why We Can't Have Nice Things,reputation,tempo,163.96
+Back To December,Speak Now,danceability,0.517
+Back To December,Speak Now,duration_ms,293040
+Back To December,Speak Now,popularity,62
+Back To December,Speak Now,tempo,141.929
+Better Than Revenge,Speak Now,danceability,0.519
+Better Than Revenge,Speak Now,duration_ms,217173
+Better Than Revenge,Speak Now,popularity,54
+Better Than Revenge,Speak Now,tempo,145.882
+Dear John,Speak Now,danceability,0.583
+Dear John,Speak Now,duration_ms,403933
+Dear John,Speak Now,popularity,46
+Dear John,Speak Now,tempo,119.375
+Enchanted,Speak Now,danceability,0.535
+Enchanted,Speak Now,duration_ms,352200
+Enchanted,Speak Now,popularity,71
+Enchanted,Speak Now,tempo,81.975
+Haunted,Speak Now,danceability,0.434
+Haunted,Speak Now,duration_ms,242093
+Haunted,Speak Now,popularity,47
+Haunted,Speak Now,tempo,162.02
+Innocent,Speak Now,danceability,0.553
+Innocent,Speak Now,duration_ms,302266
+Innocent,Speak Now,popularity,38
+Innocent,Speak Now,tempo,133.989
+Last Kiss,Speak Now,danceability,0.359
+Last Kiss,Speak Now,duration_ms,367146
+Last Kiss,Speak Now,popularity,49
+Last Kiss,Speak Now,tempo,84.358
+Long Live,Speak Now,danceability,0.412
+Long Live,Speak Now,duration_ms,317960
+Long Live,Speak Now,popularity,51
+Long Live,Speak Now,tempo,203.959
+Mean,Speak Now,danceability,0.57
+Mean,Speak Now,duration_ms,237746
+Mean,Speak Now,popularity,51
+Mean,Speak Now,tempo,164.004
+Mine - POP Mix,Speak Now,danceability,0.696
+Mine - POP Mix,Speak Now,duration_ms,230546
+Mine - POP Mix,Speak Now,popularity,42
+Mine - POP Mix,Speak Now,tempo,121.05
+Never Grow Up,Speak Now,danceability,0.715
+Never Grow Up,Speak Now,duration_ms,290480
+Never Grow Up,Speak Now,popularity,48
+Never Grow Up,Speak Now,tempo,124.899
+Sparks Fly,Speak Now,danceability,0.608
+Sparks Fly,Speak Now,duration_ms,260946
+Sparks Fly,Speak Now,popularity,53
+Sparks Fly,Speak Now,tempo,114.985
+Speak Now,Speak Now,danceability,0.708
+Speak Now,Speak Now,duration_ms,240773
+Speak Now,Speak Now,popularity,50
+Speak Now,Speak Now,tempo,118.962
+The Story Of Us,Speak Now,danceability,0.575
+The Story Of Us,Speak Now,duration_ms,265680
+The Story Of Us,Speak Now,popularity,48
+The Story Of Us,Speak Now,tempo,139.92
+A Perfectly Good Heart,Taylor Swift (Deluxe Edition),danceability,0.483
+A Perfectly Good Heart,Taylor Swift (Deluxe Edition),duration_ms,220146
+A Perfectly Good Heart,Taylor Swift (Deluxe Edition),popularity,53
+A Perfectly Good Heart,Taylor Swift (Deluxe Edition),tempo,156.092
+A Place in this World,Taylor Swift (Deluxe Edition),danceability,0.576
+A Place in this World,Taylor Swift (Deluxe Edition),duration_ms,199200
+A Place in this World,Taylor Swift (Deluxe Edition),popularity,55
+A Place in this World,Taylor Swift (Deluxe Edition),tempo,115.028
+Cold As You,Taylor Swift (Deluxe Edition),danceability,0.418
+Cold As You,Taylor Swift (Deluxe Edition),duration_ms,239013
+Cold As You,Taylor Swift (Deluxe Edition),popularity,55
+Cold As You,Taylor Swift (Deluxe Edition),tempo,175.558
+I'm Only Me When I'm With You,Taylor Swift (Deluxe Edition),danceability,0.563
+I'm Only Me When I'm With You,Taylor Swift (Deluxe Edition),duration_ms,213053
+I'm Only Me When I'm With You,Taylor Swift (Deluxe Edition),popularity,56
+I'm Only Me When I'm With You,Taylor Swift (Deluxe Edition),tempo,143.964
+Invisible,Taylor Swift (Deluxe Edition),danceability,0.612
+Invisible,Taylor Swift (Deluxe Edition),duration_ms,203226
+Invisible,Taylor Swift (Deluxe Edition),popularity,54
+Invisible,Taylor Swift (Deluxe Edition),tempo,96.001
+Mary's Song (Oh My My My),Taylor Swift (Deluxe Edition),danceability,0.403
+Mary's Song (Oh My My My),Taylor Swift (Deluxe Edition),duration_ms,213080
+Mary's Song (Oh My My My),Taylor Swift (Deluxe Edition),popularity,57
+Mary's Song (Oh My My My),Taylor Swift (Deluxe Edition),tempo,74.9
+Our Song,Taylor Swift (Deluxe Edition),danceability,0.668
+Our Song,Taylor Swift (Deluxe Edition),duration_ms,201106
+Our Song,Taylor Swift (Deluxe Edition),popularity,64
+Our Song,Taylor Swift (Deluxe Edition),tempo,89.011
+Picture To Burn,Taylor Swift (Deluxe Edition),danceability,0.658
+Picture To Burn,Taylor Swift (Deluxe Edition),duration_ms,173066
+Picture To Burn,Taylor Swift (Deluxe Edition),popularity,61
+Picture To Burn,Taylor Swift (Deluxe Edition),tempo,105.586
+Should've Said No,Taylor Swift (Deluxe Edition),danceability,0.476
+Should've Said No,Taylor Swift (Deluxe Edition),duration_ms,242200
+Should've Said No,Taylor Swift (Deluxe Edition),popularity,60
+Should've Said No,Taylor Swift (Deluxe Edition),tempo,167.964
+Stay Beautiful,Taylor Swift (Deluxe Edition),danceability,0.594
+Stay Beautiful,Taylor Swift (Deluxe Edition),duration_ms,236053
+Stay Beautiful,Taylor Swift (Deluxe Edition),popularity,53
+Stay Beautiful,Taylor Swift (Deluxe Edition),tempo,131.597
+Teardrops on My Guitar - Pop Version,Taylor Swift (Deluxe Edition),danceability,0.459
+Teardrops on My Guitar - Pop Version,Taylor Swift (Deluxe Edition),duration_ms,179066
+Teardrops on My Guitar - Pop Version,Taylor Swift (Deluxe Edition),popularity,55
+Teardrops on My Guitar - Pop Version,Taylor Swift (Deluxe Edition),tempo,199.997
+Teardrops On My Guitar - Radio Single Remix,Taylor Swift (Deluxe Edition),danceability,0.621
+Teardrops On My Guitar - Radio Single Remix,Taylor Swift (Deluxe Edition),duration_ms,203040
+Teardrops On My Guitar - Radio Single Remix,Taylor Swift (Deluxe Edition),popularity,63
+Teardrops On My Guitar - Radio Single Remix,Taylor Swift (Deluxe Edition),tempo,99.953
+The Outside,Taylor Swift (Deluxe Edition),danceability,0.589
+The Outside,Taylor Swift (Deluxe Edition),duration_ms,207106
+The Outside,Taylor Swift (Deluxe Edition),popularity,54
+The Outside,Taylor Swift (Deluxe Edition),tempo,112.982
+Tied Together with a Smile,Taylor Swift (Deluxe Edition),danceability,0.479
+Tied Together with a Smile,Taylor Swift (Deluxe Edition),duration_ms,248106
+Tied Together with a Smile,Taylor Swift (Deluxe Edition),popularity,54
+Tied Together with a Smile,Taylor Swift (Deluxe Edition),tempo,146.165
+Tim McGraw,Taylor Swift (Deluxe Edition),danceability,0.58
+Tim McGraw,Taylor Swift (Deluxe Edition),duration_ms,232106
+Tim McGraw,Taylor Swift (Deluxe Edition),popularity,56
+Tim McGraw,Taylor Swift (Deluxe Edition),tempo,76.009
+But Daddy I Love Him,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.521
+But Daddy I Love Him,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,340428
+But Daddy I Love Him,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,81
+But Daddy I Love Him,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,79.943
+Cassandra,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.587
+Cassandra,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,240205
+Cassandra,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,76
+Cassandra,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,139.963
+Chloe or Sam or Sophia or Marcus,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.516
+Chloe or Sam or Sophia or Marcus,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,213281
+Chloe or Sam or Sophia or Marcus,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,77
+Chloe or Sam or Sophia or Marcus,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,70.266
+Clara Bow,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.686
+Clara Bow,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,216662
+Clara Bow,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,76
+Clara Bow,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,104.088
+Down Bad,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.541
+Down Bad,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,261228
+Down Bad,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,82
+Down Bad,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,159.707
+Florida!!! (feat. Florence + The Machine),THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.533
+Florida!!! (feat. Florence + The Machine),THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,215463
+Florida!!! (feat. Florence + The Machine),THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,79
+Florida!!! (feat. Florence + The Machine),THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,150.088
+Fortnight (feat. Post Malone),THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.504
+Fortnight (feat. Post Malone),THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,228965
+Fortnight (feat. Post Malone),THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,82
+Fortnight (feat. Post Malone),THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,192.004
+Fresh Out The Slammer,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.33
+Fresh Out The Slammer,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,210789
+Fresh Out The Slammer,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,78
+Fresh Out The Slammer,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,87.115
+Guilty as Sin?,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.626
+Guilty as Sin?,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,254365
+Guilty as Sin?,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,82
+Guilty as Sin?,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,94.95
+How Did It End?,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.492
+How Did It End?,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,238706
+How Did It End?,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,80
+How Did It End?,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,83.993
+I Can Do It With a Broken Heart,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.701
+I Can Do It With a Broken Heart,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,218004
+I Can Do It With a Broken Heart,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,82
+I Can Do It With a Broken Heart,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,129.994
+I Can Fix Him (No Really I Can),THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.661
+I Can Fix Him (No Really I Can),THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,156297
+I Can Fix Him (No Really I Can),THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,77
+I Can Fix Him (No Really I Can),THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,106.896
+I Hate It Here,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.485
+I Hate It Here,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,243875
+I Hate It Here,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,78
+I Hate It Here,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,105.953
+I Look in People's Windows,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.763
+I Look in People's Windows,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,131907
+I Look in People's Windows,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,76
+I Look in People's Windows,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,90.796
+imgonnagetyouback,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.784
+imgonnagetyouback,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,222072
+imgonnagetyouback,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,81
+imgonnagetyouback,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,110.007
+loml,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.423
+loml,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,277156
+loml,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,80
+loml,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,78.539
+My Boy Only Breaks His Favorite Toys,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.596
+My Boy Only Breaks His Favorite Toys,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,203801
+My Boy Only Breaks His Favorite Toys,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,80
+My Boy Only Breaks His Favorite Toys,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,97.073
+Peter,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.342
+Peter,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,283957
+Peter,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,77
+Peter,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,176.859
+Robin,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.476
+Robin,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,240893
+Robin,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,73
+Robin,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,138.265
+So High School,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.366
+So High School,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,228800
+So High School,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,82
+So High School,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,176.07
+"So Long, London",THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.423
+"So Long, London",THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,262974
+"So Long, London",THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,80
+"So Long, London",THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,160.218
+thanK you aIMee,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.609
+thanK you aIMee,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,263817
+thanK you aIMee,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,76
+thanK you aIMee,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,95.997
+The Albatross,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.352
+The Albatross,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,183878
+The Albatross,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,77
+The Albatross,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,172.013
+The Alchemy,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.64
+The Alchemy,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,196900
+The Alchemy,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,78
+The Alchemy,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,100.056
+The Black Dog,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.527
+The Black Dog,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,238857
+The Black Dog,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,79
+The Black Dog,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,154.042
+The Bolter,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.455
+The Bolter,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,238241
+The Bolter,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,77
+The Bolter,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,183.694
+The Manuscript,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.509
+The Manuscript,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,224743
+The Manuscript,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,74
+The Manuscript,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,94.184
+The Prophecy,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.421
+The Prophecy,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,249807
+The Prophecy,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,81
+The Prophecy,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,167.927
+The Smallest Man Who Ever Lived,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.426
+The Smallest Man Who Ever Lived,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,245541
+The Smallest Man Who Ever Lived,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,81
+The Smallest Man Who Ever Lived,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,142.377
+The Tortured Poets Department,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.604
+The Tortured Poets Department,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,293048
+The Tortured Poets Department,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,79
+The Tortured Poets Department,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,110.259
+Who’s Afraid of Little Old Me?,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,danceability,0.606
+Who’s Afraid of Little Old Me?,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,duration_ms,334084
+Who’s Afraid of Little Old Me?,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,popularity,81
+Who’s Afraid of Little Old Me?,THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY,tempo,119.88

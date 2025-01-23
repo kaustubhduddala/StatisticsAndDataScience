@@ -1,0 +1,75 @@
+---
+title: "Another Example of an RMarkdown File"
+author: "Sally Ragsdale - SDS 313 UT Austin"
+output:
+  html_document:
+    theme: yeti
+    toc: true
+    toc_float:
+      collapsed: false
+---
+
+```{r global_options, echo=FALSE}
+knitr::opts_chunk$set(fig.height=3, fig.width=4, warning=FALSE, tidy=TRUE, tidy.opts=list(width.cutoff=60))
+
+#needed packages:
+library(ggplot2)
+library(kableExtra)
+```
+
+------------------------------------------------------------------------
+
+# **1. Dataset**
+
+The dataset we will be analyzing contains batting information from every MLB player in the 2023 season who had at least 100 plate appearances.
+
+### **Import Data Frame**
+
+```{r}
+mlb <- read.csv('Lab1_MLB_2023.csv')
+```
+# **2. Analysis of Batting Averages**
+
+<span STYLE="font-family:'Times New Roman'">
+[Click to see averages](#averages)
+The mean batting average of all players in our dataset was `r round(mean(mlb$Batting_Average),2)`, with a standard deviation of `r round(sd(mlb$Batting_Average),2)`. The distribution of this variable is shown below:
+</span>
+```{r}
+library(ggplot2)
+ggplot(mlb) + geom_histogram(aes(x=Batting_Average),col='#002D62',fill='#EB6E1F') 
+```
+
+# **3. Comparing the Texas Teams**
+
+#  {#averages}
+
+We want to compare the batting averages of the two <span style="color: purple;">Texas Teams</span>, the Astros and Rangers:
+
+```{r}
+mlb_TX <- mlb[mlb$Team=='HOU'|mlb$Team=='TEX',]
+ggplot(mlb_TX) + geom_histogram(aes(x=Batting_Average), binwidth=.02,col='#002D62',fill='#EB6E1F')  + facet_wrap(~Team)
+```
+
+Here are the mean batting averages for each team:
+
+```{r}
+aggregate(Batting_Average~Team, data=mlb_TX, mean)
+```
+
+## **kableExtra**
+
+But here is that result in a nicely-formatted table:
+
+```{r}
+#Create data frame of table:
+mytable <- aggregate(Batting_Average~Team, data=mlb_TX, mean)
+
+#Rename columns and round values:
+colnames(mytable) <- c('Team','Mean')
+mytable$Mean <- round(mytable$Mean,3)
+
+#Output table:
+kable_classic(kbl(mytable,caption = "Batting Average"),full_width = FALSE)
+```
+
+------------------------------------------------------------------------

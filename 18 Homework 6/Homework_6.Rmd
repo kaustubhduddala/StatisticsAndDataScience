@@ -1,0 +1,78 @@
+---
+title: "Homework 6"
+output: html_document
+date: "2024-11-01"
+---
+
+```{r setup, echo=FALSE, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(rvest)
+library(stringr)
+```
+
+## Questions
+
+# 1.1. 
+
+```{r}
+web_scaped <- read_html("https://www.goodreads.com/list/show/1360.Best_Banned_Censored_and_Challenged_Books")
+title <- html_text(html_elements(web_scaped, ".bookTitle span"))
+author <- html_text(html_elements(web_scaped, ".authorName span")) %>%
+  str_squish()
+averageRating <- html_text(html_elements(web_scaped, ".minirating")) %>%
+  str_extract("[0-9]\\.[0-9]+") %>%
+  as.numeric() 
+books <- tibble(Title = title, Author = author, AverageRating = averageRating)
+
+print(books, n = 10)
+```
+
+As seen in the code above, the data is scraped from the website but then requires some post processing to be completely useful for our purposes. Some string manipulation and variable type changes were required. The first 10 are listed above.
+
+# 1.2.
+
+```{r}
+lastName <- ifelse(
+  is.na(word(author, 2)),
+  word(author, -1),
+  word(author, 2)
+)
+             
+books <- tibble(Title = title, Author = author, averageRating = averageRating, LastName = lastName)
+shortest_last_name <- books %>% 
+  filter(nchar(lastName) == min(nchar(lastName))) %>%
+  select(Title, Author)
+
+shortest_last_name
+```
+
+To select the last name correctly, I had to account for names where there was no second name (eg. "Anonymous") or where the last word in the name was a title such as "Jr.". To do this I used an ifelse statement to determine if I should be using the last word in the name or it would be better to use the second word in the name as the last name. This approach has worked well and returned that Harper Lee had the shortest last name in the list and the book was "To Kill a Mockingbird"
+
+# 1.3.
+
+```{r}
+jz_books <- books %>%
+  filter(str_detect(Title, regex("j|z|J|Z")))
+
+mean_rating_jz <- mean(jz_books$averageRating)
+jz_books
+mean_rating_jz
+```
+
+All books in the list that have a J or Z (regardless of case) are listed above. The mean average rating of the books listed above is 4.155.
+
+# 1.4.
+
+```{r}
+books <- books %>%
+  mutate(Word_Count = str_count(Title, "\\S+"))
+
+ggplot(books, aes(x = Word_Count)) +
+  geom_histogram(binwidth = 1, color = "black") +
+  labs(title = "Distribution of Number of Words in Book Titles", x = "Number of Words", y = "Frequency")
+
+summary(books$Word_Count)
+```
+
+The distribution of words in the title of the books in the list is shown in the histogram graph above.The minimum number of words in a book's title was 1. The first quarter was 3. The median number of words was 4. The mean number of words was 4.53. The 3rd quarter was 6 words. The maximum number of words in a book's title in the list was 11 words.

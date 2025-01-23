@@ -1,0 +1,281 @@
+---
+title: "SDS 313 Week 2 - More Visualization Options"
+output: html_document
+date: "2024-09-05"
+---
+
+## More Visualization Options
+
+Today we'll look at:
+
+-   Adding layers to a graph
+-   Exporting your graphs
+-   The ggplot2 graphics package
+
+But first let's start with the practice we missed last class, using your survey data from last week:
+
+```{r}
+#Import Survey Data:
+survey <- read.csv('SDS313_StudentSurvey.csv')
+
+```
+
+### Group Practice
+
+1.  Pick a variable that your group thinks might differ between those of you who are from Texas versus from outside of Texas. Describe and display the bivariate relationship.
+2.  Post your code, graph, and descriptive statistics on your group's slide [here](https://docs.google.com/presentation/d/1dD7Mn2YNGz2INQRh5toxPwvBKScJUBfoEtmtloeLzKY/edit?usp=sharing).
+
+```{r}
+#Group practice plot:
+fromTexas <- survey$Grow_up == "In Texas"
+notFromTexas <- survey$Grow_up == "Outside of Texas"
+texas <- survey$Grow_up
+likesTacos <- survey$Tacos
+
+barplot(table(survey$texas))
+
+
+```
+
+### Import Birthweight Dataset
+
+We'll spend today's class using a real dataset that contains the birth weights (in grams) of a sample of babies born at a hospital in Springfield, MA.
+
+```{r}
+birthwt <- read.csv('birthwt.csv')
+```
+
+What code can we use to get familiar with the variables in this dataset?
+
+```{r}
+#Write some code to visualize the variables in this dataset:
+smoke <- birthwt
+
+```
+
+## Layering
+
+We can add additional layers to a graph to include more information about the data. Like using pch creatively. First run just the base plot:
+
+```{r}
+#Build base scatterplot
+plot(birthwt$lwt,birthwt$bwt,main='Mothers Weight and Birthweight',xlab='Mothers Pre-Pregnancy Weight (lbs)',ylab='Birthweight (g)',pch=20,col='grey')
+```
+
+Now run the entire chunk below and compare to above to see what *points()* is doing:
+
+```{r}
+#Build base scatterplot
+plot(birthwt$lwt,birthwt$bwt,main='Mothers Weight and Birthweight',xlab='Mothers Pre-Pregnancy Weight (lbs)',ylab='Birthweight (g)',pch=20,col='grey')
+
+#Add another layer of points
+points(birthwt$lwt,birthwt$bwt)
+```
+
+We can also layer on text boxes:
+
+```{r}
+#Build base scatterplot
+plot(birthwt$lwt,birthwt$bwt,main='Mothers Weight and Birthweight',xlab='Mothers Pre-Pregnancy Weight (lbs)',ylab='Birthweight (g)',pch=20)
+
+#Add text box at given coordinates
+text(230,2000,'Write text here')
+```
+
+Or add lines:
+
+```{r}
+#Build base scatterplot
+plot(birthwt$lwt,birthwt$bwt,main='Mothers Weight and Birthweight',xlab='Mothers Pre-Pregnancy Weight (lbs)',ylab='Birthweight (g)',pch=20)
+
+#Add lines
+abline(h=mean(birthwt$bwt),col='blue',lty=2)
+abline(v=mean(birthwt$lwt),col='dark green',lwd=4)
+abline(lm(birthwt$bwt~birthwt$lwt),col='red')
+```
+
+Or color different groups with subsetting. Let's practice subsetting again:
+
+```{r}
+#Replace the ????? to create smoking yes/no subsets
+SmokeYes <- birthwt[birthwt$smoke == 'yes',]
+SmokeNo <- birthwt[birthwt$smoke == 'no',]
+```
+
+Now we can color the subsets separately:
+
+```{r}
+#Scatterplot of one subset
+plot(SmokeYes$lwt,SmokeYes$bwt,main='Mothers Weight and Birthweight',xlab='Mothers Pre-Pregnancy Weight (lbs)',ylab='Birthweight (g)',pch=20,col='orange')
+
+#Add points for other subset
+points(SmokeNo$lwt,SmokeNo$bwt,pch=20,col='blue')
+```
+
+Don't forget to add a legend:
+
+```{r}
+#Scatterplot of one subset
+plot(SmokeYes$lwt,SmokeYes$bwt,main='Mothers Weight and Birthweight',xlab='Mothers Pre-Pregnancy Weight (lbs)',ylab='Birthweight (g)',pch=20,col='orange')
+
+#Add points for other subset
+points(SmokeNo$lwt,SmokeNo$bwt,pch=20,col='blue')
+
+#Add legend
+legend('bottomright',c('Smokers','Non-Smokers'),pch=c(20,20),col=c('orange','blue'), inset=.03, cex=.8)
+```
+
+## Exporting a graph
+
+You can use RStudio's user-friendly buttons to export plots, or use code. If using code, exporting a graph takes 3 steps:
+
+1.  Naming a file to write to.
+2.  Running the graph function(s).
+3.  Closing the file.
+
+```{r}
+#Where is this plot saved to...?
+pdf('mygraph.pdf') 
+plot(birthwt$lwt, birthwt$bwt) 
+dev.off()
+```
+
+### Group Practice
+
+1.  Is mother's age related to birth weight? Make a nice graph to display this relationship.
+2.  Within your graph, come up with a way to highlight or in someway distinguish babies with low birth weight (defined as less than 2,500 grams).
+3.  Export your graph using code and paste it on your group's slide [here](https://docs.google.com/presentation/d/1dD7Mn2YNGz2INQRh5toxPwvBKScJUBfoEtmtloeLzKY/edit?usp=sharing).
+
+```{r}
+#Group Practice:
+age = birthwt$age
+bwt = birthwt$bwt
+lbwt = birthwt[birthwt$bwt < 2500,]
+plot(age,bwt,main='Mothers Age and Birthweight',xlab='Mothers Pre-Pregnancy Weight (lbs)',ylab='Birthweight (g)',pch=20,col='orange')
+
+points(lbwt$age, lbwt$bwt,pch=20, col="blue")
+
+```
+
+## ggplot Graphics
+
+A very popular graphics package that can make it easier to create nice looking graphs is [ggplot2](https://ggplot2.tidyverse.org/index.html).
+
+Make sure the package is already installed and then call it:
+
+```{r}
+library(ggplot2)
+```
+
+The code for ggplot functions looks a little different, but you'll see similarities with base R plots. Note however that the default graphs come out much nicer.
+
+We start by defining a *ggplot()* object, which must take a data frame:
+
+```{r}
+#Define ggplot object with a dataframe
+bw_ggplot <- ggplot(birthwt)
+```
+
+Then we "add" elements to it based on what type of graph we want:
+
+```{r}
+#Bar graph
+bw_ggplot + geom_bar(aes(x=smoke))
+```
+
+```{r}
+#Histogram
+bw_ggplot + geom_histogram(aes(x=bwt))
+```
+
+```{r}
+#Scatterplot
+bw_ggplot + geom_point(aes(x=lwt,y=bwt))
+```
+
+We can change properties of the graph by **adding** more layers:
+
+```{r}
+#Add titles
+bw_ggplot + geom_point(aes(x=lwt,y=bwt)) + labs(title='Mothers Weight and Birth Weight', x='Mothers Weight (lbs)',y='Birth Weight (g)')
+
+#Change shape
+bw_ggplot + geom_point(aes(x=lwt,y=bwt), pch=24)
+
+#Adjust axis limits
+bw_ggplot + geom_point(aes(x=lwt,y=bwt)) + xlim(c(50,300)) + ylim(c(0,6000))
+```
+
+If you want to get rid of classic "gray box" background:
+
+```{r}
+bw_ggplot + geom_point(aes(x=lwt,y=bwt)) + theme_classic()
+```
+
+One of the best things about ggplot is that it makes coloring or filling by any other variable very easy - ***no subsetting needed!***
+
+```{r}
+#Side-by-side bar graph
+bw_ggplot + geom_bar(aes(x=ftv,fill=low), position = "dodge")
+```
+
+```{r}
+#Grouped histogram
+bw_ggplot + geom_histogram(aes(x=bwt,fill=smoke), alpha=.5, binwidth=250, position='identity')
+```
+
+```{r}
+#Scatterplot with grouped points
+bw_ggplot + geom_point(aes(x=lwt,y=bwt,col=smoke))
+```
+
+It plays well with **color brewer**:
+
+```{r}
+#Open library and view color palettes 
+library(RColorBrewer)
+display.brewer.all()
+```
+
+```{r}
+#Side-by-side bar graph
+bw_ggplot + geom_bar(aes(x=ftv,fill=low), position = "dodge") + scale_fill_brewer(type='seq',palette=1)
+
+#Scatterplot with grouped points
+bw_ggplot + geom_point(aes(x=lwt,y=bwt,col=smoke)) + scale_colour_brewer(type='qual',palette=2)
+```
+
+**Facet wraps** make splitting your graph by a categorical variable extremely easy:
+
+```{r}
+bw_ggplot + geom_histogram(aes(x=bwt),binwidth=250,col='black',fill='dark red')  + labs(title='Birthweights by Race',x='Birthweight (g)',y='Frequency') + theme(legend.position='bottom') + scale_fill_brewer(type='qual',palette=2) + facet_wrap(~race)
+```
+
+It can also produce **gradient coloring**:
+
+```{r}
+bw_ggplot + geom_point(aes(x=lwt,y=bwt,color=age)) + labs(title='Birthweight by Age and Mothers Weight',x='Mothers Weight (lbs)',y='Birthweight (g)')
+```
+
+Some additional references for ggplot:
+
+-   [Function reference](https://ggplot2.tidyverse.org/reference/index.html)
+-   [R Cookbook](http://www.cookbook-r.com/Graphs/)
+-   [ggplot Cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf)
+
+### Group Practice
+
+Using the *StudentSurvey.csv* file from last week's class and the ggplot2 functions, complete the following in your groups:
+
+1.  Make a histogram of the number of books our class has read in the past year. Include appropriate labels and a title. Try changing colors or the bin size.
+
+2.  Make overlapping histograms of books read split by the video games variable. Try moving the legend around, or changing the color palette.
+
+3.  Change the histograms into density curves.
+
+4.  Pick three variables and make a graph(s) that investigates their relationship with how many books a student has read in the past year. Post your graph and code on your [group's slide](https://docs.google.com/presentation/d/1dD7Mn2YNGz2INQRh5toxPwvBKScJUBfoEtmtloeLzKY/edit?usp=sharing).
+
+```{r}
+survey <- read.csv('SDS313_StudentSurvey.csv')
+
+```

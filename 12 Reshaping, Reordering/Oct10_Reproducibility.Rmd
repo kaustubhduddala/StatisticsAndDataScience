@@ -1,0 +1,179 @@
+---
+title: "SDS 313 Week 7 - Reproducibility"
+output: html_document
+date: "2024-10-10"
+---
+
+## Good Coding Practices and Reproducibility
+
+Today, we are going to discuss:
+
+-   Ways to code that make it easier to share your work with 1) your future self, and 2) your [collaborators](https://phdcomics.com/comics/archive.php?comicid=1689).
+-   Even when someone makes public their code and data (which is still not very common), it can be difficult to reproduce their results.
+
+## Good coding practices
+
+Imagine that you ran some analyses about a year ago and got some feedback on your paper. Now you want to rerun what you did with some updates, but when you open up your old code, it looks like this:
+
+```{r}
+pop <- read.csv('day3_popular.csv')
+length(unique(pop$class))
+table(pop$class)
+hist(pop$popular,col='grey')
+install.packages('nlme')
+library(nlme)
+pop_null <- lme(popular~1,random=~1|class,data=pop,method='ML')
+summary(pop_null)
+intervals(pop_null,0.95)
+hist(residuals(pop_null,level=0))
+hist(residuals(pop_null,level=1))
+plot(fitted(pop_null),residuals(pop_null,level=0))
+abline(h=0,col='red')
+plot(fitted(pop_null),residuals(pop_null,level=1))
+abline(h=0,col='red')
+install.packages('psychometric')
+library(psychometric)
+ICC1.lme(popular,class,data=pop)
+plot(ranef(pop_null))
+pop_f1 <- lme(popular~1+sex,random=~1|class,data=pop,method='ML')
+summary(pop_f1)
+intervals(pop_f1,0.95)
+pop_r1 <- lme(popular~1+sex,random=~sex|class,data=pop,method='ML')
+summary(pop_r1)
+intervals(pop_r1,0.95)
+plot(ranef(pop_r1))
+anova(pop_f1,pop_r1)
+rnd_slopes <- by(pop,pop$class,function(pop) fitted(lm(popular~sex,data=pop)))
+rnd_slopes <- unlist(rnd_slopes)
+names(rnd_slopes) <- NULL
+interaction.plot(pop$sex,pop$class,rnd_slopes)
+pop_fr <- lme(popular~1+sex+texp,random=~sex|class,data=pop,method='ML')
+summary(pop_fr)
+pop_int <- lme(popular~1+sex*texp,random=~sex|class,data=pop,method='ML')
+summary(pop_int)
+pop$extrav_grandc <- pop$extrav - mean(pop$extrav)
+groupmeans <- tapply(pop$extrav,pop$class,mean)
+pop$extrav_groupc <- pop$extrav - groupmeans[pop$class]
+alc <- read.table("http://www.ats.ucla.edu/stat/r/examples/alda/data/alcohol1_pp.txt", header=T, sep=",")
+hist(alc$alcuse,col='grey')
+alc_null <- lme(alcuse~1,random=~1|id,data=alc,method='ML')
+summary(alc_null)
+intervals(alc_null,0.95)
+ICC1.lme(alcuse,id,data=alc)
+alc_age <- lme(alcuse~age,random=~age|id,data=alc,method='ML')
+summary(alc_age)
+rnd_slopes <- by(alc,alc$id,function(alc) fitted(lm(alcuse~age,data=alc)))
+rnd_slopes <- unlist(rnd_slopes)
+names(rnd_slopes) <- NULL
+interaction.plot(alc$age,alc$id,rnd_slopes)
+alc_int1 <- lme(alcuse~age*coa,random=~age|id,data=alc,method='ML')
+summary(alc_int1)
+alc_int2 <- lme(alcuse~age*cpeer,random=~age|id,data=alc,method='ML')
+summary(alc_int2)
+bwt <- read.csv('day3_birthwt.csv')
+table(bwt$ID)
+length(unique(bwt$ID))
+table(bwt$LowWT)
+library(lme4)
+low_null <- glmer(LowWT~(1|ID),data=bwt,family='binomial')
+summary(low_null)
+low_age1 <- glmer(LowWT~Age+(1|ID),data=bwt,family='binomial')
+summary(low_age1)
+exp(summary(low_age1)$coefficients[,1])
+low_age2 <- glmer(LowWT~Age+(1+Age|ID),data=bwt,family='binomial')
+summary(low_age2)
+exp(summary(low_age1)$coefficients[,1])
+low_age3 <- glmer(LowWT~Age+Smoke+Race+(1|ID),data=bwt,family='binomial')
+summary(low_age3)
+exp(summary(low_age3)$coefficients[,1])
+tolerance <- read.csv("http://www.ats.ucla.edu/stat/r/examples/alda/data/tolerance1_pp.txt")
+```
+
+### Group Practice 1
+
+Looking at the code chunk above, list specifically what you wish your past self had done differently to make it easier to re-run this analysis:
+
+1.  
+
+2.  
+
+3.  
+
+### Naming conventions
+
+Which of the following do you think is the best way to name a variable?
+
+```{r}
+#What should I name my object...?
+x <- 156.2
+myweightonmondayaftercheesepizza <- 156.2
+my_weight_on_monday_after_cheese_pizza <- 156.2
+My_Weight_Monday <- 156.2
+weight_monday <- 156.2
+weight.monday <- 156.2
+```
+
+## What is Reproducibility?
+
+Reproducibility is **the ability to recompute data analysis results given the dataset(s) and code.** The current standard of reproducibility calls for data and code to be made publicly available. *Why do you think this standard is important?*
+
+Keep in mind that [analysis that is reproducible is not always robust](https://the-turing-way.netlify.app/_images/reproducible-definition-grid.svg) (or correct).
+
+### Challenges to Reproducible Research
+
+So why aren't all quantitative research papers reproducible? There are challenges:
+
+-   Getting permission to publish raw/identifiable data.
+-   Complexities of data cleaning.
+-   Version control of files *(what we're talking about next week!).*
+-   Package/software updates.
+-   Random simulations.
+
+With this last one, you can "set seed" to get identical results with a "random" simulation:
+
+```{r}
+#Everyone will get a different answer here:
+x <- c(4,17,6,99,34,26,55,15,80,2,27)
+sample(x,size=1)
+```
+
+```{r}
+#Everyone will get the same answer here:
+set.seed(5)
+sample(x,size=1)
+```
+
+### Group Practice 2
+
+We found [an article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5407277/) that actually provides the data and code used to run the analyses - should be simple to reproduce their results, right...?
+
+Using the *analysis-datasharing.Rmd* and *Data-Sharing-Policies_2017-01-25.xlsx*, attempt to reproduce the following from the *Minner2017.pdf* article:
+
+1.  Tables 1 and 2.
+2.  Figures 1 and 2.
+3.  What were the challenges your group faced when trying to reproduce these results? On your [group slide](https://docs.google.com/presentation/d/1dD7Mn2YNGz2INQRh5toxPwvBKScJUBfoEtmtloeLzKY/edit?usp=sharing), mention at least **two specific challenges** you faced when trying to reproduce these results.
+
+## Understanding the "pipe"
+
+In your textbook, you've probably seen the pipe: *%\>% ,* which is best described as saying "take this result and then" between multiple lines of code.
+
+Piping allows you to create a "chain" or pipeline of multiple operators that all use the same argument *without assigning additional objects along the way*.
+
+In some cases (not always!), it can make this more efficient:
+
+```{r}
+library(tidyverse)
+
+#not using the pipe:
+mysubset <- subset(iris, Sepal.Length > 5)
+mysubset_group <- group_by(mysubset, Species)
+summarize(mysubset_group, mean(Petal.Width))
+
+#using the pipe
+iris %>%
+  subset(Sepal.Length > 5) %>%
+  group_by(Species) %>%
+  summarize(mean(Petal.Width))
+```
+
+Main take away - if you like the pipe, use it! If not, that's ok.

@@ -1,0 +1,23 @@
+---
+title: "Working example of RMarkdown"
+author: "Kaustubh Duddala - SDS 313 UT Austin"
+output: html_document
+date: "September 17, 2024"
+---
+
+## Set Working Directory
+
+```{R}
+setwd("~/Documents/UT/SDS 313/6 RMarkdown")
+shelter <- read.csv("shelter.csv")
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

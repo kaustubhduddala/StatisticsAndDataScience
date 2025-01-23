@@ -1,0 +1,138 @@
+---
+title: "Homework 3"
+output: html_document
+date: "2024-10-04"
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+setwd("~/Documents/UT/SDS 313/11 Homework 3")
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(tidyverse)
+
+```
+
+# 1. Set up - Importing CSV files
+
+```{r}
+
+principals <- as_tibble(read.csv("Homework3_principals.csv"))
+ratings <- as_tibble(read.csv("Homework3_ratings.csv"))
+tvSeries <- as_tibble(read.csv("Homework3_tvSeries.csv"))
+
+```
+# 2. Questions
+
+### 2.1. Question 1
+
+```{r}
+
+
+non_running_series <- filter(tvSeries, !is.na(endYear))
+
+years_run <- non_running_series$endYear - non_running_series$startYear
+
+same_year_count <- non_running_series %>%
+  filter(years_run == 0) %>%
+  nrow()
+
+ggplot(data = data.frame(years_run), aes(x = years_run)) +
+  geom_histogram(binwidth = 1, boundary = 0) +
+  labs(
+    title = "Distribution of TV series by number of years run",
+    x = "Years Run",
+    y = "Count"
+  )
+```
+
+The distribution of series runtime in years is skewed to the right, as the mean (0.60 years) is less than the median (0 years). More descriptive statistics are calculated and listed below.
+
+```{r}
+mean(years_run)
+sd(years_run)
+fivenum(years_run)
+same_year_count
+```
+
+The distribution of years each series ran has the following descriptive statistics:
+- Mean: 0.60 years
+- Standard deviation: 1.08 years
+- Minimum: 0 years
+- Q1: 0 years 
+- Median: 0 years
+- Q3: 1 year
+- Maximum: 8 years
+
+### 2.2. Question 2
+
+```{r}
+
+merged <- merge(x = ratings, y = tvSeries, by = "tconst")
+
+total_series <- nrow(tvSeries)
+rated_series <- tvSeries %>%
+  filter(tconst %in% ratings$tconst)
+
+proportion_rated <- nrow(rated_series) / total_series
+
+high_rated_series <- merged %>%
+  filter(averageRating >= 9, numVotes >= 20000) %>%
+  left_join(tvSeries, by = "primaryTitle") %>%
+  select(primaryTitle) %>%
+  arrange(primaryTitle) %>% 
+  filter (!duplicated(primaryTitle))
+
+print(proportion_rated)
+high_rated_series
+
+```
+About 35.8% of TV series have rating information.
+
+The 12 TV series with a rating of 9 or higher and at least 20,000 votes are listed in the output above, sorted alphabetically.
+
+### 2.3. Question 3
+
+```{r}
+
+ages_at_start <- principals %>%
+  left_join(tvSeries, by = "tconst") %>%
+  mutate(age_at_start = startYear - birthYear)
+
+median_ages <- ages_at_start %>%
+  group_by(category) %>%
+  summarise(median_age = median(age_at_start, na.rm = TRUE))
+
+median_ages
+
+```
+
+The median age of principals when TV series started is:
+- Actresses: 35
+- Actors: 41 
+- "Self": 44
+- Writers: 47
+
+So actresses tend to be the youngest and writers the oldest when starting TV shows.
+
+# 3. Reflections
+
+### 3.1. Why did you choose the dataset you used for this project? What about the context of the data interested you?  Why did you choose the predictors you did, and what did you expect to find in their relationships with the outcome variable?
+
+I chose the 2020 Dog Breed Rankings dataset because I have a personal interest in dogs and their behavior. Understanding factors that influence trainability can help potential dog owners make informed decisions about which breed might best suit their lifestyle. The dataset's context, sourced from the American Kennel Club, adds credibility and relevance, as it reflects widely recognized breed characteristics.
+
+I selected Energy Level, Openness to Strangers, and Coat Type as predictors based on their potential impact on trainability. Energy Level was expected to show a positive correlation with Trainability, as more energetic breeds might respond better to training due to their active nature. Openness to Strangers was chosen under the assumption that sociable breeds would be more adaptable and trainable. Coat Type was included as a variable to explore whether physical characteristics might also play a role, though I suspected its impact would be less significant compared to behavioral traits.
+
+### 3.2. What challenges did you face while completing the assignment, and how did you overcome those challenges?  What do you plan to do differently next time as a result?  List at least one specific thing you learned about yourself as a data science student as a result.
+
+One significant challenge I faced was ensuring that my visualizations accurately represented the relationships between the variables. Initially, I struggled with choosing the right types of plots and formatting them for clarity. I overcame this by seeking guidance from resources and experimenting with different visualization techniques until I found what best conveyed the data's story.
+
+In the future, I plan to allocate more time for the exploratory data analysis phase to better understand my dataset before diving into visualizations. I learned that I tend to rush into the analysis without fully exploring the data first, which can lead to oversights.
+
+### 3.3 Describe at least one way your personal background influenced how you analyzed this data or presented your analysis. What might someone else have done differently if analyzing the same dataset?
+
+My background as a dog owner and enthusiast heavily influenced my analysis, particularly in the choice of predictors and interpretation of results. I have firsthand experience with different breeds and their varying temperaments, which guided my expectations about how energy levels and sociability might affect trainability.
+
+Someone else analyzing the same dataset might have approached it with a more clinical perspective, focusing solely on statistical relationships without considering the practical implications for dog owners. They might have chosen different predictors based on a more academic interest in breed genetics or health predispositions, potentially leading to different conclusions about trainability.

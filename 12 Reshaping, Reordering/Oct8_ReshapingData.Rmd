@@ -1,0 +1,147 @@
+---
+title: "SDS 313 Week 7 - Reshaping Data"
+output: html_document
+date: "2024-10-08"
+---
+
+## Reshaping Data
+
+Today, we'll:
+
+-   Learn what characteristics make a dataset "tidy."
+-   Reshape datasets wide-to-long and long-to-wide.
+
+## The "Tidy" Data Format
+
+We usually want the [following characteristics](https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png) to be true for any dataset we are going to analyze:
+
+-   Each variable is in its own column.
+-   Each observation is in its own row.
+-   Each value is in its own cell.
+
+Such a format is referred to as *tidy*, as in the *tidyverse*.
+
+Below is a set of example datasets, all storing the same information: the number of Tuberculosis cases documented by the WHO across three different countries in 1999 and 2000.
+
+***Which of these tables is "tidy"?***
+
+```{r}
+#Call tidyverse library:
+library(tidyverse)
+
+#View the same data organized in different tables:
+table1
+table2
+table3
+table4a
+table4b
+```
+
+## Reshaping "Untidy" Data
+
+### Convert wide data to long with pivot_longer
+
+We can take "wide" data and combine values of a single variable that are spread across multiple columns with *pivot_longer()*.
+
+For example, let's take the "cases" that are spread out across two variables in *table4a* and gather them into the same column (thus making it longer).
+
+```{r}
+#Wide data:
+table4a
+
+#Provide existing variable names and define new variables:
+table4a_long <- pivot_longer(table4a, cols = c('1999','2000'),  names_to = 'year', values_to = 'cases')
+table4a_long
+```
+
+### Group Practice 1
+
+1.  Reshape the information in table4b from from wide to long and call your new tibble "table4b_long".
+2.  Merge the information in table4a_long and table4b_long into a single tibble.
+3.  Check that your resulting tibble matches table1.
+
+```{r}
+#Group practice:
+table4b
+
+table4b_long <- pivot_longer(table4b, cols = c("1999","2000"), names_to = "year", values_to="cases")
+table4b_long
+
+table4ab_long <- full_join(table4b_long, table4a_long)
+table4ab_long
+```
+
+### Convert long data to wide with pivot_wider
+
+We can also reshape in the opposite direction, by spreading out long data to extract multiple variables that are defined in one column with values in another.
+
+For example, let's take the cases and population "counts" in *table2* and put them in their own columns (thus making it wider):
+
+```{r}
+#Long data:
+table2
+
+#Provide existing variable names and define new variables:
+table2_wide <- pivot_wider(table2, id_cols = c('country','year'), names_from = 'type', values_from = 'count')
+table2_wide
+```
+
+### Separate
+
+We can separate() different values existing in the same column:
+
+```{r}
+#Two values contained in one column:
+table3
+
+#Separate them into their own variables:
+table3_sep <- separate(table3, rate, into=c("cases", "population"), sep="/")
+table3_sep
+```
+
+Notice the types of our new variables are the same as the original (character). But an easy option let's us convert the new variables to numeric:
+
+```{r}
+#Allow new variable to default to number:
+table3_sep <- separate(table3, rate, into=c("cases", "population"), sep="/", convert = TRUE)
+table3_sep
+```
+
+You can even separate the values from a single variable at a given position within a string:
+
+```{r}
+#Pull out year from century:
+table3
+
+table3_year <- separate(table3, year, into = c("century", "year"), sep = 2, convert = TRUE)
+table3_year
+```
+
+### Group Practice 2
+
+The *Swifties_Songs.csv* dataset is contains various characteristics of Taylor Swift songs. Import it and complete the following:
+
+1.  How many different albums are represented in this dataset?
+2.  Reshape your subset so that each song appears in its own unique row. How many different songs are contained this dataset?
+3.  Pick your two favorite albums and create a subset that contains only songs from those two albums.
+4.  Pick an "attribute" (your choice) to investigate. Make a bivariate graph that compares that attribute between your two albums, use *group_by()* to calculate the relevant bivariate statistics, and paste your results on your [group slide](https://docs.google.com/presentation/d/1dD7Mn2YNGz2INQRh5toxPwvBKScJUBfoEtmtloeLzKY/edit?usp=sharing).
+
+```{r}
+#Import dataset:
+setwd("~/Documents/UT/SDS 313/12 Reshaping, Reordering")
+swifties <- read_csv('Swifties_Songs.csv')
+
+# 1
+nrow(table(swifties$album))
+
+# 2
+swiftiesWide <- pivot_wider(swifties, id_cols = c("name", "album"), names_from = "Attribute", values_from = "Value")
+swiftiesWide
+
+#3
+swiftiesFavs <- filter(swifties, album == "1989" | album == "Red")
+swiftiesFavs
+swiftiesFavesWide <- pivot_wider(swiftiesFavs, id_cols = c("name", "album"), names_from = "Attribute", values_from = "Value")
+swiftiesFavesWideGrouped <- group_by(swiftiesFavesWide, danceability)
+swiftiesFavesWideGrouped
+```
