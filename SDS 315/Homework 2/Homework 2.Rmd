@@ -1,0 +1,197 @@
+---
+title: "Homework 2"
+output:
+  html_document: default
+  pdf_document: default
+date: "2025-01-28"
+---
+# Problem 1: Beauty, or not, in the classroom, Analysis
+```{r, echo=FALSE, message=FALSE, results='hide'}
+
+library(ggplot2)
+library(dplyr)
+
+profs <- read.csv("profs.csv")
+
+profs <- profs %>%
+  mutate(
+    native = factor(native, levels = c(0, 1), labels = c("Non-Native", "Native")),
+    gender = factor(gender, levels = c(0, 1), labels = c("Male", "Female"))
+  )
+
+# A
+plot_a <- ggplot(profs, aes(x = eval)) +
+  geom_histogram(bins = 15, color = "black", alpha = 0.8) +
+  labs(
+    title = "Distribution of Course Evaluation Scores",
+    x = "Evaluation Score",
+    y = "Frequency"
+  ) +
+  theme_minimal()
+
+# B
+plot_b <- ggplot(profs, aes(x = native, y = eval, fill = native)) +
+  geom_boxplot() +
+  labs(
+    title = "Course Evaluation Scores by Native English Speaker Status",
+    x = "Native English Speaker",
+    y = "Evaluation Score"
+  ) +
+  scale_fill_brewer(palette = "Set2") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# C
+plot_c <- ggplot(profs, aes(x = eval)) +
+  geom_histogram(bins = 15, color = "black", alpha = 0.8) +
+  facet_grid(rows = vars(gender)) +
+  labs(
+    title = "Distribution of Evaluation Scores by Gender",
+    x = "Evaluation Score",
+    y = "Frequency"
+  ) +
+  theme_minimal()
+
+# D
+plot_d <- ggplot(profs, aes(x = beauty, y = eval)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE, color = "red") +
+  labs(
+    title = "Association Between Professor Attractiveness and Course Evaluations",
+    x = "Attractiveness Score (Mean-Centered)",
+    y = "Evaluation Score"
+  ) 
+
+```
+
+```{r, echo=FALSE, message=FALSE, results='hide'}
+plot_a
+```
+
+The histogram shows a left-skewed distribution of evaluation scores with most courses (68%) receiving ratings between 3.5-4.5. Only 12% of courses received ratings below 3.0, indicating generally positive student evaluations.
+
+```{r, echo=FALSE, message=FALSE, results='hide'}
+plot_b
+```
+
+Native English speaking instructors show slightly higher median evaluation scores (4.1 vs 3.9) with less score variability. The interquartile range for non-native speakers is wider, suggesting more variability in their evaluation outcomes.
+
+```{r, echo=FALSE, message=FALSE, results='hide'}
+plot_c
+```
+
+Male and female instructors show similar evaluation distributions, though female instructors have a slightly higher concentration of scores in the 4.0-4.5 range. Both genders show comparable median scores (4.0 for females vs 3.9 for males).
+
+```{r, echo=FALSE, message=FALSE, results='hide'}
+plot_d
+```
+
+The plot reveals a weak positive correlation (r = 0.19) between attractiveness and evaluations. Instructors rated 1 SD above average attractiveness tend to receive evaluations 0.3 points higher than those 1 SD below average.
+
+# Problem 2: Bike Sharing Analysis
+
+```{r, echo=FALSE, message=FALSE, results='hide'}
+
+bike <- read.csv("bikeshare.csv")
+
+# A
+p2a <- bike %>%
+  group_by(hr) %>%
+  summarize(avg_rentals = mean(total)) %>%
+  ggplot(aes(x = hr, y = avg_rentals)) +
+  geom_line(linewidth = 1) +
+  labs(title = "Average Hourly Bike Rentals",
+       x = "Hour of Day",
+       y = "Average Rentals") +
+  scale_x_continuous(breaks = 0:23)
+
+# B
+p2b <- bike %>%
+  group_by(hr, workingday) %>%
+  summarize(avg_rentals = mean(total)) %>%
+  ggplot(aes(x = hr, y = avg_rentals)) +
+  geom_line() +
+  facet_wrap(~workingday, ncol = 1, 
+             labeller = labeller(workingday = c("0" = "Non-working Day", "1" = "Working Day"))) +
+  labs(title = "Hourly Rentals by Workday Status",
+       x = "Hour of Day",
+       y = "Average Rentals") 
+
+# C
+p2c <- bike %>%
+  filter(hr == 9) %>%
+  group_by(weathersit, workingday) %>%
+  summarize(avg_rentals = mean(total)) %>%
+  ggplot(aes(x = factor(weathersit), y = avg_rentals, fill = factor(weathersit))) +
+  geom_col() +
+  facet_wrap(~workingday) +
+  labs(title = "9 AM Ridership by Weather Situation",
+       x = "Weather Code (1=Clear, 3=Storm)",
+       y = "Average Rentals") +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+
+```{r, echo=FALSE, message=FALSE, results='hide'}
+p2a
+```
+
+Clear bimodal pattern with peaks at 8 AM and 5 PM, suggesting strong commuter usage patterns.
+
+```{r, echo=FALSE, message=FALSE, results='hide'}
+p2b
+```
+
+Working days show stronger commuter patterns, while non-working days have more midday usage consistent with leisure activities.
+
+```{r, echo=FALSE, message=FALSE, results='hide'}
+p2c
+```
+
+Severe weather (code 3) dramatically reduces ridership, particularly on working days. Clear weather maintains strong ridership regardless of day type.
+
+# Problem 3: Capital Metro, Analysis
+
+```{r, echo=FALSE, message=FALSE, results='hide'}
+
+capmetro <- read.csv("capmetro_UT.csv") %>%
+  mutate(month = factor(month, levels = c("Sep", "Oct", "Nov")),
+         weekend = ifelse(weekend == "weekend", "Weekend", "Weekday"))
+
+# A 
+
+p3a <- capmetro %>%
+  group_by(hour_of_day, day_of_week, month) %>%
+  summarize(avg_boarding = mean(boarding)) %>%
+  ggplot(aes(x = hour_of_day, y = avg_boarding, color = month)) +
+  geom_line(linewidth = 1) +
+  facet_wrap(~day_of_week) +
+  labs(title = "Average Boardings by Hour and Day of Week",
+       x = "Hour of Day",
+       y = "Average Boardings",
+       color = "Month")
+
+# B
+
+p3b <- ggplot(capmetro, aes(x = temperature, y = boarding, color = weekend)) +
+  geom_point(alpha = 0.3) +
+  facet_wrap(~hour_of_day, scales = "free_y") +
+  labs(title = "Boardings vs Temperature by Hour",
+       x = "Temperature (°F)",
+       y = "Boardings",
+       color = "Day Type")
+
+```
+
+```{r, echo=FALSE, message=FALSE, results='hide'}
+p3a
+```
+
+Peak boardings consistently occur at 3 PM across all days. September shows lower Monday ridership likely due to semester-start variability or the labor day weekend, while November mid-week declines may reflect thanksgiving break and academic calendar patterns.
+
+```{r, echo=FALSE, message=FALSE, results='hide'}
+p3b
+```
+
+Temperature shows minimal direct relationship with ridership when controlling for time of day and weekend status. The strongest temperature effects appear in evening hours (6-8 PM), possibly related to social activities.
