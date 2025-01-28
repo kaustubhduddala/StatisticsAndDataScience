@@ -6,6 +6,9 @@ output:
 date: "2025-01-28"
 ---
 # Problem 1: Beauty, or not, in the classroom, Analysis
+
+[Github Link](https://github.com/kaustubhduddala/StatisticsAndDataScience/tree/main/SDS%20315/Homework%202)
+
 ```{r, echo=FALSE, message=FALSE, results='hide'}
 
 library(ggplot2)
