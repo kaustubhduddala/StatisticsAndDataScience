@@ -1,0 +1,39 @@
+---
+title: "Homework 3"
+output: html_document
+date: "2/13/2025"
+---
+
+[I'm an inline-style link](https://www.google.com)
+
+## Problem 1
+
+```{r, include=FALSE}
+
+```
+
+This is an R Markdown document.
+
+## Problem 2
+
+```{r, include=FALSE}
+
+```
+
+This is an R Markdown document.
+
+## Problem 3
+
+```{r, include=FALSE}
+
+```
+
+This is an R Markdown document.
+
+## Problem 4
+
+```{r, include=FALSE}
+
+```
+
+This is an R Markdown document.
