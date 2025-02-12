@@ -354,10 +354,54 @@ display: none;
 </div>
 
 
-<p><a href="https://www.google.com">I’m an inline-style link</a></p>
+<p><a href="https://github.com/kaustubhduddala/StatisticsAndDataScience/tree/main/SDS%20315/Homework%203">Github</a></p>
 <div id="problem-1" class="section level2">
 <h2>Problem 1</h2>
-<p>This is an R Markdown document.</p>
+<pre><code>##       name       lower       upper level     method    estimate
+## 1 diffmean -0.05509344 0.007048512  0.95 percentile -0.02348235</code></pre>
+<pre><code>##        N        Y 
+## 1.875882 1.852400</code></pre>
+<p>The theory is not supported. While the mean price is slightly higher
+for stations without competition, the 95% confidence interval for the
+difference in means includes zero. This means we cannot confidently say
+that there is a statistically significant difference in price between
+gas stations with and without competitors. The observed difference could
+be due to random chance</p>
+<pre><code>##   name     lower     upper level     method  estimate
+## 1  cor 0.1934837 0.5666007  0.95 percentile 0.3961546</code></pre>
+<p>The theory is supported. The 95% confidence interval for the
+correlation does not include zero, indicating a statistically
+significant positive correlation between median household income and gas
+prices. The correlation coefficient of 0.3962 suggests a moderate
+positive association. As income increases, gas prices tend to increase
+as well.</p>
+<pre><code>##       name       lower      upper level     method     estimate
+## 1 diffmean -0.03863283 0.03026882  0.95 percentile -0.003299916</code></pre>
+<pre><code>##        N        Y 
+## 1.866316 1.863016</code></pre>
+<p>The theory is not supported. The mean prices are very similar, and
+the 95% confidence interval for the difference in means includes zero.
+Therefore, there is no statistically significant evidence to suggest
+that gas stations at stoplights charge more than those without.</p>
+<pre><code>##       name       lower      upper level     method  estimate
+## 1 diffmean 0.008487586 0.08109571  0.95 percentile 0.0456962</code></pre>
+<pre><code>##        N        Y 
+## 1.854304 1.900000</code></pre>
+<p>The theory is supported. The 95% confidence interval for the
+difference in means does not include zero, and the mean price is higher
+for stations with highway access. This provides evidence that gas
+stations with direct highway access charge more than those without. The
+estimated effect size is 0.0457, meaning gas stations with highway
+access charge approximately 4.6 cents more per gallon, on average.</p>
+<pre><code>##       name       lower      upper level     method   estimate
+## 1 diffmean -0.01080242 0.06513052  0.95 percentile 0.02740421</code></pre>
+<pre><code>##    FALSE     TRUE 
+## 1.856389 1.883793</code></pre>
+<p>The theory is not clearly supported. The mean price is higher for
+Shell stations, but the 95% confidence interval for the difference in
+means includes zero. Therefore, we cannot confidently conclude that
+Shell stations charge significantly more than other brands based on this
+sample. There is a slight trend in that direction.</p>
 </div>
 <div id="problem-2" class="section level2">
 <h2>Problem 2</h2>
