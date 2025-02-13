@@ -4,6 +4,7 @@ output: html_document
 date: "2/13/2025"
 ---
 
+Kaustubh Duddala
 [Github](https://github.com/kaustubhduddala/StatisticsAndDataScience/tree/main/SDS%20315/Homework%203)
 
 ```{r, include=FALSE}
