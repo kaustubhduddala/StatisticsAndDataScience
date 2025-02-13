@@ -354,11 +354,33 @@ display: none;
 </div>
 
 
-<p><a href="https://github.com/kaustubhduddala/StatisticsAndDataScience/tree/main/SDS%20315/Homework%203">Github</a></p>
+<p>Kaustubh Duddala <a href="https://github.com/kaustubhduddala/StatisticsAndDataScience/tree/main/SDS%20315/Homework%203">Github</a></p>
 <div id="problem-1" class="section level2">
 <h2>Problem 1</h2>
+<p>Have you ever been driving through town looking to make a quick stop
+to fill up your car with gas and noticed that different gas stations are
+advertising different gas prices? Have you ever stopped to wonder why
+this might be the case? Could there be some underlying factors
+responsible for this noticeable difference in price, specifically for
+the same, regular unleaded mix of gas on the same day at the same
+time?</p>
+<p>To observe prices and other traits of gas stations firsthand, we
+visited 101 gas stations in the Austin area. We split the city into east
+and west sections with Lamar Blvd.~serving as the dividing line. At each
+gas station, we observed all necessary characteristics while staying in
+the car. We used the Maps app to determine the address and zip codes of
+the gas stations and the transportation feature within Maps on the
+iPhone to locate the gas stations themselves. We input the data directly
+into an Excel spreadsheet. Once we had visited all 101 gas stations, we
+used the US Census Bureau’s American Fact Finder to input the median
+income for each zip code.</p>
+<p>People have a lot of pet theories about what explains the variation
+in prices between gas stations. Here are several such theories:</p>
+<div id="a-gas-stations-charge-more-if-they-lack-direct-competition-in-sight" class="section level4">
+<h4>A) Gas stations charge more if they lack direct competition in
+sight</h4>
 <pre><code>##       name       lower       upper level     method    estimate
-## 1 diffmean -0.05509344 0.007048512  0.95 percentile -0.02348235</code></pre>
+## 1 diffmean -0.05483914 0.007298397  0.95 percentile -0.02348235</code></pre>
 <pre><code>##        N        Y 
 ## 1.875882 1.852400</code></pre>
 <p>The theory is not supported. While the mean price is slightly higher
@@ -366,35 +388,43 @@ for stations without competition, the 95% confidence interval for the
 difference in means includes zero. This means we cannot confidently say
 that there is a statistically significant difference in price between
 gas stations with and without competitors. The observed difference could
-be due to random chance</p>
+be due to random chance.</p>
+</div>
+<div id="b-gas-stations-charge-more-if-they-lack-direct-competition-in-sight" class="section level4">
+<h4>B) Gas stations charge more if they lack direct competition in
+sight</h4>
 <pre><code>##   name     lower     upper level     method  estimate
-## 1  cor 0.1934837 0.5666007  0.95 percentile 0.3961546</code></pre>
-<p>The theory is supported. The 95% confidence interval for the
-correlation does not include zero, indicating a statistically
-significant positive correlation between median household income and gas
-prices. The correlation coefficient of 0.3962 suggests a moderate
-positive association. As income increases, gas prices tend to increase
-as well.</p>
+## 1  cor 0.1951974 0.5663085  0.95 percentile 0.3961546</code></pre>
+<p>The theory is supported. the correlation is estimated as 0.35 with a
+95% confidence interval of about [0.15, 0.55]. As income increases, gas
+prices tend to increase as well.</p>
+</div>
+<div id="c-gas-stations-at-stoplights-charge-more" class="section level4">
+<h4>C) Gas stations at stoplights charge more</h4>
 <pre><code>##       name       lower      upper level     method     estimate
-## 1 diffmean -0.03863283 0.03026882  0.95 percentile -0.003299916</code></pre>
+## 1 diffmean -0.03844217 0.03085694  0.95 percentile -0.003299916</code></pre>
 <pre><code>##        N        Y 
 ## 1.866316 1.863016</code></pre>
-<p>The theory is not supported. The mean prices are very similar, and
-the 95% confidence interval for the difference in means includes zero.
-Therefore, there is no statistically significant evidence to suggest
-that gas stations at stoplights charge more than those without.</p>
-<pre><code>##       name       lower      upper level     method  estimate
-## 1 diffmean 0.008487586 0.08109571  0.95 percentile 0.0456962</code></pre>
+<p>The theory is not supported. the estimated difference is $0.12 but
+the 95% confidence interval [–$0.04, $0.31]) contains zero, so because
+the confidence interval includes zero, we cannot conclude that having a
+stoplight statistically increases prices.</p>
+</div>
+<div id="d-gas-stations-with-direct-highway-access-charge-more" class="section level4">
+<h4>D) Gas stations with direct highway access charge more</h4>
+<pre><code>##       name     lower      upper level     method  estimate
+## 1 diffmean 0.0088641 0.08129401  0.95 percentile 0.0456962</code></pre>
 <pre><code>##        N        Y 
 ## 1.854304 1.900000</code></pre>
 <p>The theory is supported. The 95% confidence interval for the
-difference in means does not include zero, and the mean price is higher
-for stations with highway access. This provides evidence that gas
-stations with direct highway access charge more than those without. The
-estimated effect size is 0.0457, meaning gas stations with highway
-access charge approximately 4.6 cents more per gallon, on average.</p>
+difference in means does not include zero, stations with highway access
+have a mean price about $0.05 higher with a 95% confidence interval of
+[$0.01, $0.08].</p>
+</div>
+<div id="e-shell-charges-more-than-all-other-non-shell-brands" class="section level4">
+<h4>E) Shell charges more than all other non-Shell brands</h4>
 <pre><code>##       name       lower      upper level     method   estimate
-## 1 diffmean -0.01080242 0.06513052  0.95 percentile 0.02740421</code></pre>
+## 1 diffmean -0.01056033 0.06471012  0.95 percentile 0.02740421</code></pre>
 <pre><code>##    FALSE     TRUE 
 ## 1.856389 1.883793</code></pre>
 <p>The theory is not clearly supported. The mean price is higher for
@@ -403,17 +433,123 @@ means includes zero. Therefore, we cannot confidently conclude that
 Shell stations charge significantly more than other brands based on this
 sample. There is a slight trend in that direction.</p>
 </div>
+</div>
 <div id="problem-2" class="section level2">
 <h2>Problem 2</h2>
-<p>This is an R Markdown document.</p>
+<p>The file sclass.csv contains data on nearly 30,000 used Mercedes
+S-Class vehicles sold on cars.com. These are big, very expensive,
+luxurious cars used frequently by chauffeurs. The variables of interest
+here are price, mileage, trim (i.e. submodel), color, and year</p>
+<div id="a-filter-the-data-set-down-to-include-only-those-cars-where-year-2011-and-trim-63-amg.-based-on-these-116-cars-compute-a-95-bootstrap-confidence-interval-for-the-average-mileage-of-2011-s-class-63-amgs-that-were-hitting-the-used-car-market-when-this-data-was-collected" class="section level4">
+<h4>A) Filter the data set down to include only those cars where year ==
+2011 and trim == “63 AMG”. Based on these 116 cars, compute a 95%
+bootstrap confidence interval for the average mileage of 2011 S-Class 63
+AMGs that were hitting the used-car market when this data was
+collected</h4>
+<pre><code>##   name    lower    upper level     method estimate
+## 1 mean 26193.01 31792.54  0.95 percentile 28997.34</code></pre>
+<p>We are 95% confident that the true average mileage of 2011 S–Class 63
+AMGs lies between roughly 26,200 and 31,900 miles</p>
+</div>
+<div id="b-filter-the-data-set-down-to-include-only-those-cars-where-year-2014-and-trim-550.-based-on-this-sample-of-2889-cars-compute-a-95-bootstrap-confidence-interval-for-the-proportion-of-all-2014-s-class-550s-that-were-painted-black.-hint-you-might-find-this-easiest-if-you-use-mutate-to-first-define-a-new-variable-isblack-that-is-either-true-or-false-depending-on-whether-the-car-is-black" class="section level4">
+<h4>B) Filter the data set down to include only those cars where year ==
+2014 and trim == “550”. Based on this sample of 2889 cars, compute a 95%
+bootstrap confidence interval for the proportion of all 2014 S-Class
+550s that were painted black. Hint: you might find this easiest if you
+use mutate to first define a new variable, isBlack, that is either TRUE
+or FALSE depending on whether the car is black</h4>
+<pre><code>##        name     lower     upper level     method  estimate
+## 1 prop_TRUE 0.4170993 0.4527518  0.95 percentile 0.4347525</code></pre>
+<p>We are 95% confident that between 41% and 46% of 2014 S–Class 550s
+were painted black.</p>
+</div>
 </div>
 <div id="problem-3" class="section level2">
 <h2>Problem 3</h2>
-<p>This is an R Markdown document.</p>
+<p>Like any TV network, NBC conducts does market research on how viewers
+respond to TV shows (both its own shows and the shows of other competing
+networks). The data in nbc_pilotsurvey.csv contains the results of some
+of that research. Each row of this data frame shows the responses of a
+single viewer (the Viewer variable) to the “pilot” episode1 of a single
+TV show (Show variable). The remaining variables encode the viewers
+reactions to the show. Viewers were asked to rate the strength of their
+agreement on a 1-5 scale (where 5 means “strongly agree”) with various
+statements about the show, such as “This show made me feel happy” or “I
+found this show confusing”</p>
+<div id="consider-the-shows-living-with-ed-and-my-name-is-earl.-who-makes-people-happier-ed-or-earl-construct-a-filtered-data-set-containing-only-viewer-responses-where-show-living-with-ed-or-show-my-name-is-earl.-then-construct-a-95-confidence-interval-for-the-difference-in-mean-viewer-response-to-the-q1_happy-question-for-these-two-shows.-is-there-evidence-that-one-show-consistently-produces-a-higher-mean-q1_happy-response-among-viewers" class="section level4">
+<h4>Consider the shows “Living with Ed” and “My Name is Earl.” Who makes
+people happier: Ed or Earl? Construct a filtered data set containing
+only viewer responses where Show == “Living with Ed” or Show == “My Name
+is Earl”. Then construct a 95% confidence interval for the difference in
+mean viewer response to the Q1_Happy question for these two shows. Is
+there evidence that one show consistently produces a higher mean
+Q1_Happy response among viewers</h4>
+<pre><code>##  Living with Ed My Name is Earl 
+##        3.926829        3.777778</code></pre>
+<pre><code>##       name      lower      upper level     method   estimate
+## 1 diffmean -0.3917358 0.09847733  0.95 percentile -0.1490515</code></pre>
+<p>the observed difference is –0.15 with a 95% confidence of
+approximately [–0.39, 0.11]. Because the confidence interval includes
+zero, there is no statistically significant evidence that one show
+produces a higher “happy” response.</p>
+</div>
+<div id="consider-the-shows-the-biggest-loser-and-the-apprentice-los-angeles.-which-realitycontest-show-made-people-feel-more-annoyed-construct-a-filtered-data-set-containing-only-viewer-responses-where-show-the-biggest-loser-or-show-the-apprentice-los-angeles.-then-construct-a-95-confidence-interval-for-the-difference-in-mean-viewer-response-to-the-q1_annoyed-question-for-these-two-shows.-is-there-evidence-that-one-show-consistently-produces-a-higher-mean-q1_annoyed-response-among-viewers" class="section level4">
+<h4>Consider the shows “The Biggest Loser” and “The Apprentice: Los
+Angeles.” Which reality/contest show made people feel more annoyed?
+Construct a filtered data set containing only viewer responses where
+Show == “The Biggest Loser” or Show == “The Apprentice: Los Angeles”.
+Then construct a 95% confidence interval for the difference in mean
+viewer response to the Q1_Annoyed question for these two shows. Is there
+evidence that one show consistently produces a higher mean Q1_Annoyed
+response among viewers</h4>
+<pre><code>## # A tibble: 2 × 2
+##   Show                        average_annyoed
+##   &lt;chr&gt;                                 &lt;dbl&gt;
+## 1 The Apprentice: Los Angeles            2.31
+## 2 The Biggest Loser                      2.04</code></pre>
+<pre><code>##       name      lower       upper level     method  estimate
+## 1 diffmean -0.5260514 -0.01666993  0.95 percentile -0.270997</code></pre>
+<p>The difference is about -0.27 with a 95% confidence interval of
+approximately [-0.52, -0.02]. The entire confidence lies below zero,
+indicating that “The Biggest Loser” produces a significantly lower
+annoyance response than “The Apprentice: Los Angeles.”</p>
+</div>
+<div id="consider-the-show-dancing-with-the-stars.-this-show-has-a-straightforward-premise-it-is-a-dancing-competition-between-couples-with-each-couple-consisting-of-a-celebrity-paired-with-a-professional-dancer." class="section level4">
+<h4>Consider the show “Dancing with the Stars.” This show has a
+straightforward premise: it is a dancing competition between couples,
+with each couple consisting of a celebrity paired with a professional
+dancer.</h4>
+<pre><code>##        name      lower     upper level     method   estimate
+## 1 prop_TRUE 0.03867403 0.1160221  0.95 percentile 0.07734807</code></pre>
+<p>We are 95% confident that between 3% and 12% of American TV watchers
+would find “Dancing with the Stars” confusing.</p>
+</div>
 </div>
 <div id="problem-4" class="section level2">
 <h2>Problem 4</h2>
-<p>This is an R Markdown document.</p>
+<pre><code>##    diffmean 
+## -0.05228145</code></pre>
+<pre><code>##       name       lower      upper level     method    estimate
+## 1 diffmean -0.09010417 -0.0136897  0.95 percentile -0.05228145</code></pre>
+<p>The goal of this analysis is to determine if pausing paid search
+advertising on Google in a random subset of eBay’s designated market
+areas (DMAs) affects the revenue ratio (defined as
+rev_after/rev_before). In essence, we ask whether Google AdWords
+advertising generates extra revenue for eBay. We compute a revenue ratio
+for each DMA and then separate the data into a treatment group (where
+AdWords was paused) and a control group (where AdWords continued). The
+difference in mean revenue ratios between these groups is evaluated, and
+a bootstrap simulation with 10,000 iterations is used to generate a 95%
+confidence interval for the difference. The analysis yielded an observed
+difference in the mean revenue ratio of approximately –0.0523 (treatment
+minus control). The bootstrap simulation produced a 95% confidence
+interval of about (–0.0904, –0.0143), indicating that the treatment
+group had a statistically significant lower revenue ratio. The evidence
+supports the conclusion that pausing paid search advertising leads to a
+decrease in the revenue ratio, suggesting that eBay’s Google AdWords
+campaigns contribute additional revenue. For stakeholders, this implies
+that continuing with paid search advertising appears to be beneficial
+for eBay’s revenue performance.</p>
 </div>
 
 

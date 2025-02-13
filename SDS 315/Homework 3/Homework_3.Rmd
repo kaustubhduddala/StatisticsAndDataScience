@@ -11,13 +11,33 @@ Kaustubh Duddala
 library(ggplot2)
 library(tidyverse)
 library(mosaic)
+p1d <- read.csv("gasprices.csv")
+p2d <- read.csv("sclass.csv")
+p3d <- read.csv("nbc_pilotsurvey.csv")
+p4d <- read.csv("ebay.csv")
 ```
 
 ## Problem 1
 
-```{r, message=FALSE, echo=FALSE}
+Have you ever been driving through town looking to make a quick stop to fill up your car with gas
+and noticed that different gas stations are advertising different gas prices? Have you ever stopped
+to wonder why this might be the case? Could there be some underlying factors responsible for
+this noticeable difference in price, specifically for the same, regular unleaded mix of gas on the
+same day at the same time?
 
-p1d <- read.csv("gasprices.csv")
+To observe prices and other traits of gas stations firsthand, we visited 101 gas stations in the
+Austin area. We split the city into east and west sections with Lamar Blvd.~serving as the
+dividing line. At each gas station, we observed all necessary characteristics while staying in the
+car. We used the Maps app to determine the address and zip codes of the gas stations and the
+transportation feature within Maps on the iPhone to locate the gas stations themselves. We input
+the data directly into an Excel spreadsheet. Once we had visited all 101 gas stations, we used the
+US Census Bureau’s American Fact Finder to input the median income for each zip code.
+
+People have a lot of pet theories about what explains the variation in prices between gas stations. Here are
+several such theories:
+
+#### A) Gas stations charge more if they lack direct competition in sight
+```{r, message=FALSE, echo=FALSE}
 
 # A
 
@@ -27,8 +47,9 @@ mean(Price ~ Competitors, data=p1d)
 
 ```
 
-The theory is not supported. While the mean price is slightly higher for stations without competition, the 95% confidence interval for the difference in means includes zero. This means we cannot confidently say that there is a statistically significant difference in price between gas stations with and without competitors. The observed difference could be due to random chance
+The theory is not supported. While the mean price is slightly higher for stations without competition, the 95% confidence interval for the difference in means includes zero. This means we cannot confidently say that there is a statistically significant difference in price between gas stations with and without competitors. The observed difference could be due to random chance.
 
+#### B) Gas stations charge more if they lack direct competition in sight
 ```{r, message=FALSE, echo=FALSE}
 # B
 boot_p1d_income = do(10000)*cor(Price ~ Income, data=resample(p1d))
@@ -36,8 +57,9 @@ confint(boot_p1d_income, level = 0.95)
 
 ```
 
-The theory is supported. The 95% confidence interval for the correlation does not include zero, indicating a statistically significant positive correlation between median household income and gas prices. The correlation coefficient of 0.3962 suggests a moderate positive association. As income increases, gas prices tend to increase as well.
+The theory is supported. the correlation is estimated as 0.35 with a 95% confidence interval of about [0.15, 0.55]. As income increases, gas prices tend to increase as well.
 
+#### C) Gas stations at stoplights charge more
 ```{r, message=FALSE, echo=FALSE}
 # C
 boot_p1d_stop = do(10000)*diffmean(Price ~ Stoplight, data=resample(p1d))
@@ -46,8 +68,9 @@ mean(Price ~ Stoplight, data=p1d)
 
 ```
 
-The theory is not supported. The mean prices are very similar, and the 95% confidence interval for the difference in means includes zero. Therefore, there is no statistically significant evidence to suggest that gas stations at stoplights charge more than those without.
+The theory is not supported. the estimated difference is $0.12 but the 95% confidence interval [–$0.04, $0.31]) contains zero, so because the confidence interval includes zero, we cannot conclude that having a stoplight statistically increases prices.
 
+#### D) Gas stations with direct highway access charge more
 ```{r, message=FALSE, echo=FALSE}
 # D
 boot_p1d_high = do(10000)*diffmean(Price ~ Highway, data=resample(p1d))
@@ -55,8 +78,10 @@ confint(boot_p1d_high, level = 0.95)
 mean(Price ~ Highway, data=p1d)
 ```
 
-The theory is supported. The 95% confidence interval for the difference in means does not include zero, and the mean price is higher for stations with highway access. This provides evidence that gas stations with direct highway access charge more than those without. The estimated effect size is 0.0457, meaning gas stations with highway access charge approximately 4.6 cents more per gallon, on average.
+The theory is supported. The 95% confidence interval for the difference in means does not include zero, stations with highway access have a mean price about $0.05 higher with a 95% confidence interval of [$0.01, $0.08].
 
+
+#### E) Shell charges more than all other non-Shell brands
 ```{r, message=FALSE, echo=FALSE}
 # E
 boot_p1d_brand = do(10000)*diffmean(Price ~ Brand=="Shell", data=resample(p1d))
@@ -69,24 +94,95 @@ The theory is not clearly supported. The mean price is higher for Shell stations
 
 ## Problem 2
 
+The file sclass.csv contains data on nearly 30,000 used Mercedes S-Class vehicles sold on cars.com. These are big, very expensive, luxurious cars used frequently by chauffeurs. The variables of interest here are price, mileage, trim (i.e. submodel), color, and year
+
+#### A) Filter the data set down to include only those cars where year == 2011 and trim == "63 AMG". Based on these 116 cars, compute a 95% bootstrap confidence interval for the average mileage of 2011 S-Class 63 AMGs that were hitting the used-car market when this data was collected
 ```{r, message=FALSE, echo=FALSE}
 
-```
+p2ad <-  filter(p2d, year == 2011) %>%
+  filter(trim == "63 AMG")
 
-This is an R Markdown document.
+# A
+
+boot_p2ad = do(10000)*mean(~ mileage, data=resample(p2ad))
+confint(boot_p2ad, level = 0.95)
+
+```
+We are 95% confident that the true average mileage of 2011 S–Class 63 AMGs lies between roughly 26,200 and 31,900 miles
+
+#### B) Filter the data set down to include only those cars where year == 2014 and trim == "550". Based on this sample of 2889 cars, compute a 95% bootstrap confidence interval for the proportion of all 2014 S-Class 550s that were painted black. Hint: you might find this easiest if you use mutate to first define a new variable, isBlack, that is either TRUE or FALSE depending on whether the car is black
+```{r, message=FALSE, echo=FALSE}
+
+p2bd <-  filter(p2d, year == 2014) %>%
+  filter(trim == "550")
+
+boot_p2bd = do(10000)*prop(~ color=="Black", data=resample(p2bd))
+confint(boot_p2bd, level = 0.95)
+
+```
+We are 95% confident that between 41% and 46% of 2014 S–Class 550s were painted black.
+
 
 ## Problem 3
 
+Like any TV network, NBC conducts does market research on how viewers respond to TV shows (both its
+own shows and the shows of other competing networks). The data in nbc_pilotsurvey.csv contains the results
+of some of that research. Each row of this data frame shows the responses of a single viewer (the Viewer
+variable) to the “pilot” episode1 of a single TV show (Show variable). The remaining variables encode the
+viewers reactions to the show. Viewers were asked to rate the strength of their agreement on a 1-5 scale
+(where 5 means “strongly agree”) with various statements about the show, such as “This show made me feel
+happy” or “I found this show confusing"
+
+#### Consider the shows “Living with Ed” and “My Name is Earl.” Who makes people happier: Ed or Earl? Construct a filtered data set containing only viewer responses where Show == "Living with Ed" or Show == "My Name is Earl". Then construct a 95% confidence interval for the difference in mean viewer response to the Q1_Happy question for these two shows. Is there evidence that one show consistently produces a higher mean Q1_Happy response among viewers
 ```{r, message=FALSE, echo=FALSE}
+
+p3da <- filter(p3d, Show == "Living with Ed" | Show == "My Name is Earl")
+mean(Q1_Happy ~ Show, data=p3da)
+
+boot_p3da = do(10000)*diffmean(Q1_Happy ~ Show, data=resample(p3da))
+confint(boot_p3da, level = 0.95)
+
+```
+the observed difference is –0.15 with a 95% confidence of approximately [–0.39, 0.11]. Because the confidence interval includes zero, there is no statistically significant evidence that one show produces a higher “happy” response.
+
+
+#### Consider the shows “The Biggest Loser” and “The Apprentice: Los Angeles.” Which reality/contest show made people feel more annoyed? Construct a filtered data set containing only viewer responses where Show == "The Biggest Loser" or Show == "The Apprentice: Los Angeles". Then construct a 95% confidence interval for the difference in mean viewer response to the Q1_Annoyed question for these two shows. Is there evidence that one show consistently produces a higher mean Q1_Annoyed response among viewers
+```{r, message=FALSE, echo=FALSE}
+
+
+p3db <- filter(p3d, Show == "The Biggest Loser" | Show == "The Apprentice: Los Angeles")
+fp3db <- p3db %>% group_by(Show) %>% summarise(average_annyoed = mean(Q1_Annoyed, na.rm = TRUE))
+fp3db
+boot_p3db = do(10000)*diffmean(Q1_Annoyed ~ Show, data=resample(p3db))
+confint(boot_p3db, level = 0.95)
+
+```
+The difference is about -0.27 with a 95% confidence interval of approximately [-0.52, -0.02]. The entire confidence lies below zero, indicating that “The Biggest Loser” produces a significantly lower annoyance response than “The Apprentice: Los Angeles.”
+
+
+
+#### Consider the show “Dancing with the Stars.” This show has a straightforward premise: it is a dancing competition between couples, with each couple consisting of a celebrity paired with a professional dancer.
+```{r, message=FALSE, echo=FALSE}
+
+p3dc <- filter(p3d, Show == "Dancing with the Stars")
+boot_p3dc = do(10000)*prop( ~ Q2_Confusing >= 4, data=resample(p3dc))
+confint(boot_p3dc, level = 0.95)
 
 ```
 
-This is an R Markdown document.
+We are 95% confident that between 3% and 12% of American TV watchers would find “Dancing with the Stars” confusing.
+
 
 ## Problem 4
 
 ```{r, message=FALSE, echo=FALSE}
+p4da <- p4d %>%
+  mutate(revenue_ratio = rev_after / rev_before)
 
+diffmean(revenue_ratio ~ adwords_pause, data=p4da)
+
+boot_p4da = do(10000)*diffmean(revenue_ratio ~ adwords_pause, data=resample(p4da))
+confint(boot_p4da, level = 0.95)
 ```
 
-This is an R Markdown document.
+The goal of this analysis is to determine if pausing paid search advertising on Google in a random subset of eBay’s designated market areas (DMAs) affects the revenue ratio (defined as rev_after/rev_before). In essence, we ask whether Google AdWords advertising generates extra revenue for eBay. We compute a revenue ratio for each DMA and then separate the data into a treatment group (where AdWords was paused) and a control group (where AdWords continued). The difference in mean revenue ratios between these groups is evaluated, and a bootstrap simulation with 10,000 iterations is used to generate a 95% confidence interval for the difference. The analysis yielded an observed difference in the mean revenue ratio of approximately –0.0523 (treatment minus control). The bootstrap simulation produced a 95% confidence interval of about (–0.0904, –0.0143), indicating that the treatment group had a statistically significant lower revenue ratio. The evidence supports the conclusion that pausing paid search advertising leads to a decrease in the revenue ratio, suggesting that eBay’s Google AdWords campaigns contribute additional revenue. For stakeholders, this implies that continuing with paid search advertising appears to be beneficial for eBay’s revenue performance.
