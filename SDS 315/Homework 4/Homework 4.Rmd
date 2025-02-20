@@ -1,0 +1,72 @@
+---
+title: "Homework 4"
+output: html_document
+date: "2/13/2025"
+---
+
+Kaustubh Duddala
+[Github](https://github.com/kaustubhduddala/StatisticsAndDataScience/tree/main/SDS%20315/Homework%203)
+
+```{r, include=FALSE}
+library(ggplot2)
+library(tidyverse)
+library(mosaic)
+```
+
+## Problem 1    
+
+Are the observed data (70 flagged trades out of 2021) consistent with the SEC’s null hypothesis that, over
+the long run, securities trades from the Iron Bank are flagged at the same 2.4% baseline rate as that of other
+traders?
+
+#### Iron Bank
+```{r, message=FALSE, echo=FALSE}
+# A
+p1_iron_bank_fraud <- rbinom(n = 10000, size = 2021, prob = 0.024)
+p1_pvalue = mean(p1_iron_bank_fraud >= 70)
+
+cat("p value:", p1_pvalue)
+
+hist(p1_iron_bank_fraud, main="Distribution of simulated flagged trades under null hypothesis", xlab = "Number of flagged trades")
+
+```
+
+[write up]
+
+## Problem 2
+
+Are the observed data for Gourmet Bites consistent with the Health Department’s null hypothesis
+that, on average, restaurants in the city are cited for health code violations at the same 3% baseline rate?
+
+#### Health Inspections
+```{r, message=FALSE, echo=FALSE}
+# A
+p2_health <- rbinom(n = 100000, size = 50, prob = 0.03)
+p2_pvalue = mean(p2_health >= 8)
+
+cat("P value:", p1_pvalue)
+
+hist(p2_health, main="Distribution of simulated health code violations under null hypothesis", xlab = "Number of health code violations")
+
+```
+
+[write up]
+
+## Problem 2
+
+Are the observed data for Gourmet Bites consistent with the Health Department’s null hypothesis
+that, on average, restaurants in the city are cited for health code violations at the same 3% baseline rate?
+
+#### Health Inspections
+```{r, message=FALSE, echo=FALSE}
+# A
+p2_health <- rbinom(n = 100000, size = 50, prob = 0.03)
+p2_pvalue = mean(p2_health >= 8)
+
+cat("P value:", p1_pvalue)
+
+hist(p2_health, main="Distribution of simulated health code violations under null hypothesis", xlab = "Number of health code violations")
+
+```
+
+[write up]
